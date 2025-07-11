@@ -1,0 +1,20 @@
+{
+  "name": "uzum_market",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db": "json-server ./db.json -p 7777" 
+  },
+  "devDependencies": {
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "axios": "^1.10.0",
+    "json-server": "^1.0.0-beta.3",
+    "swiper": "^11.2.10"
+  }
+}
