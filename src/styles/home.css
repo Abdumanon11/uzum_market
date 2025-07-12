@@ -10,34 +10,47 @@
     height: 100%;
     display: flex;
     justify-content: center;
+}
+
+.const_pr {
+    max-width: 1700px;
+    height: 100%;
     
 }
+
+.skd {
+    color: #999;
+    text-decoration: line-through;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
 
 .produsts {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(1, 4fr);
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
 }
 
 .product {
     width: 230px;
-    height: 389px;
-    top: 752px;
-    left: 194px;
-    opacity: 1;
+    height: 410px;
     border-width: 1px;
 
 }
 
 .img_box {
     max-width: 230px;
+    position: relative;
     height: 300px;
     border-radius: 12px;
 
 
 }
-.tide{
+
+.tide {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 }
@@ -51,13 +64,34 @@
 
 }
 
-.k_t{
+.k_t {
     display: flex;
+
+    h4 {
+        padding-top: 5px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    }
 }
 
-.karsin{
+.karsin {
     background-color: white;
     border: 0;
     padding-left: 45%;
 
+}
+
+.favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

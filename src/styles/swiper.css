@@ -1,7 +1,7 @@
 .slider{
     width: 1300px;
     max-width: 100vw;
-    height: 700px;
+    height: 500px;
     margin: auto;
     position: relative;
     overflow: hidden;
@@ -23,8 +23,8 @@
 }
 .slider .buttons{
     position: absolute;
-    top: 30%;
-    left: 5%;
+    top: 40%;
+    left: 6%;
     width: 90%;
     display: flex;
     justify-content: space-between;
