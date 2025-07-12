@@ -28,7 +28,7 @@ img_ava.alt = 'Аватар';
 img_ava.id = 'ava_img';
 
 const izbreni = document.createElement('a');
-izbreni.href = '#';
+izbreni.href = '/like';
 izbreni.textContent = 'Избранные';
 izbreni.className = 'izb';
 
@@ -36,7 +36,7 @@ const kr_nm = document.createElement('div');
 kr_nm.className = 'kr_nm';
 
 const korzina = document.createElement('a'); // Переименовал переменную
-korzina.href = '#';
+korzina.href = '/korzina';
 korzina.textContent = 'Корзина';
 korzina.className = 'kor';
 
