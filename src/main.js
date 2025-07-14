@@ -83,6 +83,22 @@ const pages = [
       import('../src/scripts/menu.js')
     }
   },
+  {
+    path: '/produkt',
+    view: async (app) => {
+      const home = await axios.get('/src/pages/produkt.html')
+      app.innerHTML = home.data
+    },
+    loandStyles: async () => {
+      import('../src/styles/produkt.css')
+      import('../src/styles/menu.css')
+    },
+    loandScripts: async ()  => {
+      import('../src/scripts/produkt.js')
+      import('../src/scripts/menu.js')
+    }
+
+  }
 
 ]
 

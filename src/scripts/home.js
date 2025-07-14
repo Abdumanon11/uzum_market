@@ -32,7 +32,8 @@ axios.get('http://localhost:7777/goods')
         for (let item of goods) {
             const formattedPrice = Number(item.price).toLocaleString("ru-RU");
             const product = document.createElement('div');
-        product.className = 'product';
+            product.className = 'product';
+            product.id = 'product_id'
 
         const img_box = document.createElement('div');
         img_box.className = 'img_box';
@@ -89,3 +90,14 @@ axios.get('http://localhost:7777/goods')
         productsContainer.appendChild(product);
     }
 }
+
+const product_id = document.getElementById('product_id');
+
+if (product_id) {
+    product_id.addEventListener('click', () => {
+        const itemId = product_id.dataset.id;
+        window.location.href = `/product.html?id=${itemId}`;
+    });
+}
+
+
