@@ -109,18 +109,15 @@ async function error(app){
   app.innerHTML = home.data
 }
 
-
-async function router() {
-  const path = document.location.pathname;
+export async function router() {
+  const path = window.location.pathname;
   const app = document.getElementById('app');
   const route = pages.find(route => route.path === path);
-  if (!route) {
-    return await error(app);
-  }
 
-  await route.loandStyles()
-  await route.view(app)
-  await route.loandScripts();
+  if (!route) return await error(app);
+
+  if (route.loandStyles) await route.loandStyles();
+  if (route.view) await route.view(app);
+  if (route.loandScripts) await route.loandScripts();
 }
 router()
-
