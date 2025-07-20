@@ -77,13 +77,44 @@ a {
 ;
 }
 
-.izb {
+#izb {
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.kor{
+#kor{
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+
+
+.menuu {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  margin-right: 20px;
+  font-size: 18px;
+}
+
+.menuu::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: black;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+.menuu:hover::after,
+.menuu.active::after {
+  width: 100%;
+}
+
+
+
 
 .box{
      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;

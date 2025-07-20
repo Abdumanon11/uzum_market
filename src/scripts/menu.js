@@ -30,7 +30,8 @@ img_ava.id = 'ava_img';
 const izbreni = document.createElement('a');
 izbreni.href = '/like';
 izbreni.textContent = 'Избранные';
-izbreni.className = 'izb';
+izbreni.className = 'menuu';
+izbreni.id = 'izb'
 
 const kr_nm = document.createElement('div');
 kr_nm.className = 'kr_nm';
@@ -38,7 +39,8 @@ kr_nm.className = 'kr_nm';
 const korzina = document.createElement('a'); // Переименовал переменную
 korzina.href = '/korzina';
 korzina.textContent = 'Корзина';
-korzina.className = 'kor';
+korzina.className = 'menuu';
+korzina.id = 'kor';
 
 const box = document.createElement('div');
 box.className = 'box';
@@ -60,3 +62,12 @@ if (img) {
         window.location.href = '/';
     });
 }
+
+const allMenuLinks = document.querySelectorAll('.menuu');
+const currentPath = window.location.pathname;
+
+allMenuLinks.forEach(link => {
+  if (link.getAttribute('href') === currentPath) {
+    link.classList.add('active');
+  }
+});

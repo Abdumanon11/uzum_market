@@ -12,6 +12,7 @@ if (id) {
   console.warn('ID товара не найден');
 }
 
+
 function createProduct(item) {
   const product = document.getElementById('pro_box');
   if (!product) return console.error('Контейнер #pro_box не найден');
@@ -76,7 +77,7 @@ function createProduct(item) {
   p_2.textContent = item.description;
 
   const btn_box = document.createElement('div');
-  btn_box.className = 'btn_box';
+  btn_box.className = 'btn__box';
 
   const kar = document.createElement('button');
   kar.className = 'kar';
@@ -125,3 +126,6 @@ function createProduct(item) {
 
   product.append(pr_img, text_box);
 }
+
+
+

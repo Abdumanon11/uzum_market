@@ -92,10 +92,12 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/produkt.css')
       import('../src/styles/menu.css')
+      import('../src/styles/productpx.css')
     },
     loandScripts: async ()  => {
       import('../src/scripts/produkt.js')
       import('../src/scripts/menu.js')
+      import('../src/scripts/productpx.js')
     }
 
   }

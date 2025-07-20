@@ -73,6 +73,10 @@ h1 {
     padding-bottom: 20px;
 }
 
+.price h3 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .poloska {
     width: 818px;
     height: 1px;
@@ -87,13 +91,16 @@ h1 {
 }
 
 .pp {
-    width: 500px;
+    width: 640px;
     height: 133px;
-
+    
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn_box {
-    padding-top: 75px;
+.btn__box {
+    padding-top: 15%;
     gap: 10px;
     display: flex;
 

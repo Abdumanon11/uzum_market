@@ -1,8 +1,9 @@
 import axios from "axios";
 
+
 let allGoods = [];
 let currentIndex = 0;
-const batchSize = 10;
+const batchSize = 5;
 
 const productsContainer = document.getElementById("produsts");
 const showMoreBtn = document.getElementById("show-more-btn");
@@ -103,3 +104,5 @@ function createProductCard(goods) {
     productsContainer.appendChild(product);
   }
 }
+
+
