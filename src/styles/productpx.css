@@ -113,3 +113,30 @@
 
 
 }
+
+.similar-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.similar-product {
+  border: 1px solid #ddd;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.similar-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.similar-title {
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.similar-price {
+  color: green;
+}

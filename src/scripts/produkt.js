@@ -12,8 +12,9 @@ if (id) {
   console.warn('ID товара не найден');
 }
 
-
 function createProduct(item) {
+  console.log(item);
+
   const product = document.getElementById('pro_box');
   if (!product) return console.error('Контейнер #pro_box не найден');
 
@@ -83,9 +84,36 @@ function createProduct(item) {
   kar.className = 'kar';
   kar.textContent = 'Добавить в корзину';
 
+  // ✅ Кнопка "Добавить в избранное"
   const lik = document.createElement('button');
   lik.className = 'lik';
   lik.textContent = 'Добавить в избранное';
+
+  lik.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    try {
+      const liked = JSON.parse(localStorage.getItem('liked')) || [];
+
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
+
+      const exists = liked.some(el => el.id === item.id);
+      if (!exists) {
+        liked.push(itemData);
+        localStorage.setItem('liked', JSON.stringify(liked));
+        alert('Добавлено в избранное');
+      } else {
+        alert('Уже в избранном');
+      }
+    } catch (err) {
+      console.error("Ошибка при добавлении в избранное:", err);
+    }
+  });
 
   const ops = document.createElement('div');
   ops.className = 'ops';
@@ -96,7 +124,7 @@ function createProduct(item) {
   const pp_2 = document.createElement('p');
   pp_2.textContent = item.description;
 
-  // Сборка дерева
+  // Сборка
   pr_img.appendChild(box_img);
   pr_img.appendChild(img_gl);
 
@@ -126,6 +154,3 @@ function createProduct(item) {
 
   product.append(pr_img, text_box);
 }
-
-
-

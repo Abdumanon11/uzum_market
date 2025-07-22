@@ -1,37 +1,28 @@
 import axios from "axios";
 
+const similarContainer = document.getElementById("produsts"); 
+const currentId = sessionStorage.getItem("currentProductId");
 
-let allGoods = [];
-let currentIndex = 0;
-const batchSize = 5;
-
-const productsContainer = document.getElementById("produsts");
-const showMoreBtn = document.getElementById("show-more-btn");
-
-// Загрузка товаров
-axios.get('http://localhost:7777/goods')
+axios.get("http://localhost:7777/goods")
   .then((res) => {
-    allGoods = res.data;
-    renderNextBatch();
+    const allGoods = res.data;
+
+    // Находим текущий товар
+    const currentProduct = allGoods.find(item => item.id == currentId);
+    if (!currentProduct) return;
+
+    // Фильтруем похожие товары
+    const similarGoods = allGoods
+      .filter(item => item.id != currentProduct.id && item.type === currentProduct.type)
+      .slice(0, 4); // максимум 4 похожих
+
+    renderSimilarProducts(similarGoods);
   })
-  .catch((err) => console.error('Ошибка при загрузке:', err));
+  .catch((err) => {
+    console.error("Ошибка при загрузке похожих товаров:", err);
+  });
 
-// Отображение следующей партии товаров
-function renderNextBatch() {
-  const nextItems = allGoods.slice(currentIndex, currentIndex + batchSize);
-  createProductCard(nextItems);
-  currentIndex += batchSize;
-
-  if (currentIndex >= allGoods.length) {
-    showMoreBtn.style.display = 'none';
-  }
-}
-
-// Кнопка "Показать ещё"
-showMoreBtn.addEventListener('click', renderNextBatch);
-
-// Функция для создания карточек товара
-function createProductCard(goods) {
+function renderSimilarProducts(goods) {
   for (let item of goods) {
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
@@ -92,17 +83,12 @@ function createProductCard(goods) {
     product.appendChild(img_box);
     product.appendChild(text);
 
-    // Переход на /produkt по клику
+    // Переход на /produkt
     product.addEventListener('click', async () => {
-    const id = product.dataset.id;
-    sessionStorage.setItem('currentProductId', id);
+      sessionStorage.setItem('currentProductId', item.id);
+      window.location.href = '/produkt';
+    });
 
-    window.history.pushState({}, '', '/produkt');
-    location.reload(); // ← принудительная перезагрузка
-});
-
-    productsContainer.appendChild(product);
+    similarContainer.appendChild(product);
   }
 }
-
-
