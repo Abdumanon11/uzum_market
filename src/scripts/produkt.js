@@ -84,7 +84,6 @@ function createProduct(item) {
   kar.className = 'kar';
   kar.textContent = 'Добавить в корзину';
 
-  // ✅ Кнопка "Добавить в избранное"
   const lik = document.createElement('button');
   lik.className = 'lik';
   lik.textContent = 'Добавить в избранное';

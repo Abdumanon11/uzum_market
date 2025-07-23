@@ -47,9 +47,35 @@ function createProductCard(goods) {
 
     const favorite_btn = document.createElement('button');
     favorite_btn.className = 'favorite-btn';
+     favorite_btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      try {
+        const liked = JSON.parse(localStorage.getItem('liked')) || [];
+
+        const itemData = {
+          id: item.id,
+          title: item.title,
+          media: item.media,
+          price: item.price
+        };
+
+        const exists = liked.some(el => el.id === item.id);
+        if (!exists) {
+          liked.push(itemData);
+          localStorage.setItem('liked', JSON.stringify(liked));
+          alert('Добавлено в избранное');
+        } else {
+          alert('Уже в избранном');
+        }
+      } catch (err) {
+        console.error("Ошибка при добавлении в избранное:", err);
+      }
+    });
 
     const img = document.createElement('img');
     img.src = '/public/Vector.png';
+    
 
     const text = document.createElement('div');
     text.className = 'text';
@@ -91,7 +117,7 @@ function createProductCard(goods) {
     product.appendChild(img_box);
     product.appendChild(text);
 
-    // Переход на /produkt по клику
+  
     product.addEventListener('click', async () => {
     const id = product.dataset.id;
     sessionStorage.setItem('currentProductId', id);

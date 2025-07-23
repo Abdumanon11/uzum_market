@@ -1,15 +1,15 @@
 const productsContainer = document.getElementById("produsts");
-const likeBox = document.getElementById("like-box"); // пустая заглушка
+const likeBox = document.getElementById("like-box"); // заглушка (пусто)
 
 function renderLiked() {
   const likedItems = JSON.parse(localStorage.getItem('liked')) || [];
 
-  productsContainer.innerHTML = ''; // очищаем
+  productsContainer.innerHTML = ''; // очищаем контейнер
   if (likedItems.length === 0) {
-    likeBox.style.display = 'block'; // показать заглушку
+    likeBox.style.display = 'block';
     productsContainer.style.display = 'none';
   } else {
-    likeBox.style.display = 'none';  // скрыть заглушку
+    likeBox.style.display = 'none';
     productsContainer.style.display = 'flex';
     createProductCard(likedItems);
   }
@@ -30,19 +30,48 @@ function createProductCard(goods) {
     img.src = item.media;
     img.className = 'img_pr';
 
-    const favoriteBtn = document.createElement('button');
-    favoriteBtn.className = 'favorite-btn';
+    // 💖 Favorite кнопка
+   const favorite_btn = document.createElement('button');
+favorite_btn.className = 'favorite-btn';
 
-    const icon = document.createElement('img');
+const icon = document.createElement('img');
+const liked = JSON.parse(localStorage.getItem('liked')) || [];
+const isLiked = liked.some(el => el.id === item.id);
+icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
+
+favorite_btn.appendChild(icon);
+
+favorite_btn.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  let liked = JSON.parse(localStorage.getItem('liked')) || [];
+
+  const itemData = {
+    id: item.id,
+    title: item.title,
+    media: item.media,
+    price: item.price
+  };
+
+  const exists = liked.some(el => el.id === item.id);
+
+  if (!exists) {
+    liked.push(itemData);
+    localStorage.setItem('liked', JSON.stringify(liked));
     icon.src = '/public/Vector2.png';
-    favoriteBtn.appendChild(icon);
+  } else {
+    liked = liked.filter(el => el.id !== item.id);
+    localStorage.setItem('liked', JSON.stringify(liked));
+    icon.src = '/public/Vector.png';
 
-    favoriteBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      removeFromLike(item.id);
-    });
+    if (window.location.pathname === "/like") {
+      renderLiked();
+    }
+  }
+});
 
-    imgBox.append(img, favoriteBtn);
+
+    imgBox.append(img, favorite_btn);
 
     const text = document.createElement('div');
     text.className = 'text';
@@ -65,13 +94,6 @@ function createProductCard(goods) {
 
     productsContainer.appendChild(product);
   }
-}
-
-function removeFromLike(id) {
-  let liked = JSON.parse(localStorage.getItem('liked')) || [];
-  liked = liked.filter(el => el.id !== id);
-  localStorage.setItem('liked', JSON.stringify(liked));
-  renderLiked(); // обновить UI
 }
 
 renderLiked();
