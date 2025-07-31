@@ -31,6 +31,8 @@ showMoreBtn.addEventListener('click', renderNextBatch);
 
 // Функция для создания карточек товара
 function createProductCard(goods) {
+  const liked = JSON.parse(localStorage.getItem('liked')) || [];
+
   for (let item of goods) {
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
@@ -47,35 +49,40 @@ function createProductCard(goods) {
 
     const favorite_btn = document.createElement('button');
     favorite_btn.className = 'favorite-btn';
-     favorite_btn.addEventListener("click", (e) => {
+
+    const icon = document.createElement('img');
+    const isLiked = liked.some(el => el.id === item.id);
+    icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
+
+    favorite_btn.appendChild(icon);
+
+    favorite_btn.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      try {
-        const liked = JSON.parse(localStorage.getItem('liked')) || [];
+      let liked = JSON.parse(localStorage.getItem('liked')) || [];
 
-        const itemData = {
-          id: item.id,
-          title: item.title,
-          media: item.media,
-          price: item.price
-        };
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
 
-        const exists = liked.some(el => el.id === item.id);
-        if (!exists) {
-          liked.push(itemData);
-          localStorage.setItem('liked', JSON.stringify(liked));
-          alert('Добавлено в избранное');
-        } else {
-          alert('Уже в избранном');
-        }
-      } catch (err) {
-        console.error("Ошибка при добавлении в избранное:", err);
+      const exists = liked.some(el => el.id === item.id);
+
+      if (!exists) {
+        liked.push(itemData);
+        localStorage.setItem('liked', JSON.stringify(liked));
+        icon.src = '/public/Vector2.png';
+        alert('Добавлено в избранное');
+      } else {
+        liked = liked.filter(el => el.id !== item.id);
+        localStorage.setItem('liked', JSON.stringify(liked));
+        icon.src = '/public/Vector.png';
+        alert('Удалено из избранного');
       }
     });
 
-    const img = document.createElement('img');
-    img.src = '/public/Vector.png';
-    
 
     const text = document.createElement('div');
     text.className = 'text';
@@ -101,8 +108,7 @@ function createProductCard(goods) {
     const img2 = document.createElement('img');
     img2.src = '/public/Group 237756.png';
 
-    // Сборка карточки
-    favorite_btn.appendChild(img);
+    // Сборка DOM
     img_box.appendChild(img_pr);
     img_box.appendChild(favorite_btn);
 
@@ -117,15 +123,15 @@ function createProductCard(goods) {
     product.appendChild(img_box);
     product.appendChild(text);
 
-  
     product.addEventListener('click', async () => {
-    const id = product.dataset.id;
-    sessionStorage.setItem('currentProductId', id);
+      const id = product.dataset.id;
+      sessionStorage.setItem('currentProductId', id);
 
-    window.history.pushState({}, '', '/produkt');
-    location.reload(); // ← принудительная перезагрузка
-});
+      window.history.pushState({}, '', '/produkt');
+      location.reload();
+    });
 
     productsContainer.appendChild(product);
   }
 }
+

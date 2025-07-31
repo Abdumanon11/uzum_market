@@ -12,11 +12,12 @@
     justify-content: center;
     text-align: center;
 }
-h1{
+
+h1 {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-p{
+p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
@@ -29,12 +30,13 @@ p{
     display: flex;
     justify-content: center;
 }
-.pro_img{
+
+.pro_img {
     display: flex;
 }
 
 .pr_img {
-    
+
     display: flex;
 }
 
@@ -104,9 +106,10 @@ h1 {
 .pp {
     width: 640px;
     height: 133px;
-    
+
 }
-p{
+
+p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -173,4 +176,107 @@ p {
     width: 380px;
     height: 506px;
 
+}
+
+.conteine {
+    width: 1300px;
+    height: 100%;
+    display: flex;
+
+
+
+}
+
+h1 {
+    padding-right: 65%;
+}
+
+
+.tovars {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    border: 1px solid #D9D9D9;
+    padding: 10px
+}
+
+.tovar {
+    width: 700px;
+    height: 100%;
+    display: flex;
+    gap: 10px;
+    text-align: left;
+    padding: 10px;
+
+}
+
+.tovar_img {
+    width: 143px;
+    height: 187px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+}
+
+.BTN_BOX {
+    width: 89px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-width: 1px;
+    border-radius: 3px;
+    border: 1px;
+    gap: 10px;
+    border-color: black;
+
+    button {
+        width: 30px;
+        height: 30px;
+        border: 0;
+        border-radius: 50%;
+        background-color: white;
+    }
+
+
+}
+
+.del {
+    width: 80px;
+    height: 32px;
+    border: 0;
+    color: #7000FF;
+    background-color: #EAEAF9;
+    ;
+
+}
+
+.box_ofr {
+    width: 330px;
+    height: 265px;
+    padding: 10px;
+    h2{
+        padding-bottom: 20px;
+    }
+    p{
+    padding-bottom: 10px
+    }
+
+}
+
+.ofr {
+    width: 330px;
+    height: 32px;
+    background: #7000FF;
+    color: #D9D9D9;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
 }

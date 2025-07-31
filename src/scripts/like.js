@@ -29,8 +29,6 @@ function createProductCard(goods) {
     const img = document.createElement('img');
     img.src = item.media;
     img.className = 'img_pr';
-
-    // 💖 Favorite кнопка
    const favorite_btn = document.createElement('button');
 favorite_btn.className = 'favorite-btn';
 
