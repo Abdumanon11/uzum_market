@@ -3,18 +3,29 @@ import axios from "axios";
 const similarContainer = document.getElementById("produsts"); 
 const currentId = sessionStorage.getItem("currentProductId");
 
+// Показать сообщение без alert
+function showMessage(text) {
+  const msg = document.createElement('div');
+  msg.className = 'notification';
+  msg.textContent = text;
+
+  document.body.appendChild(msg);
+
+  setTimeout(() => {
+    msg.remove();
+  }, 1500); // 1.5 сек
+}
+
 axios.get("http://localhost:7777/goods")
   .then((res) => {
     const allGoods = res.data;
 
-    // Находим текущий товар
     const currentProduct = allGoods.find(item => item.id == currentId);
     if (!currentProduct) return;
 
-    // Фильтруем похожие товары
     const similarGoods = allGoods
       .filter(item => item.id != currentProduct.id && item.type === currentProduct.type)
-      .slice(0, 4); // максимум 4 похожих
+      .slice(0, 4);
 
     renderSimilarProducts(similarGoods);
   })
@@ -23,6 +34,8 @@ axios.get("http://localhost:7777/goods")
   });
 
 function renderSimilarProducts(goods) {
+  const liked = JSON.parse(localStorage.getItem('liked')) || [];
+
   for (let item of goods) {
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
@@ -37,11 +50,40 @@ function renderSimilarProducts(goods) {
     img_pr.src = item.media;
     img_pr.className = 'img_pr';
 
+    // Избранное
     const favorite_btn = document.createElement('button');
     favorite_btn.className = 'favorite-btn';
+const icon = document.createElement('img');
+const isLiked = liked.some(el => el.id === item.id);
+icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png'; // ← Меняет иконку при загрузке
+favorite_btn.appendChild(icon);
 
-    const img = document.createElement('img');
-    img.src = '/public/Vector.png';
+favorite_btn.addEventListener("click", (e) => {
+  e.stopPropagation();
+
+  let liked = JSON.parse(localStorage.getItem('liked')) || [];
+
+  const itemData = {
+    id: item.id,
+    title: item.title,
+    media: item.media,
+    price: item.price
+  };
+
+  const exists = liked.some(el => el.id === item.id);
+
+  if (!exists) {
+    liked.push(itemData);
+    localStorage.setItem('liked', JSON.stringify(liked));
+    icon.src = '/public/Vector2.png'; // ← Поменять на лайкнутую
+    showMessage('Добавлено в избранное');
+  } else {
+    liked = liked.filter(el => el.id !== item.id);
+    localStorage.setItem('liked', JSON.stringify(liked));
+    icon.src = '/public/Vector.png'; // ← Поменять на обычную
+    showMessage('Удалено из избранного');
+  }
+});
 
     const text = document.createElement('div');
     text.className = 'text';
@@ -61,18 +103,40 @@ function renderSimilarProducts(goods) {
     h4.className = 'h4';
     h4.textContent = `${formattedPrice} сум`;
 
+    // Кнопка корзины
     const karsin = document.createElement('button');
     karsin.className = 'karsin';
 
     const img2 = document.createElement('img');
     img2.src = '/public/Group 237756.png';
+    karsin.appendChild(img2);
 
-    // Сборка карточки
-    favorite_btn.appendChild(img);
+    karsin.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
+
+      const exists = cart.some(el => el.id === item.id);
+      if (!exists) {
+        cart.push(itemData);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showMessage('Товар добавлен в корзину');
+      } else {
+        showMessage('Этот товар уже в корзине');
+      }
+    });
+
+    // Сборка DOM
     img_box.appendChild(img_pr);
     img_box.appendChild(favorite_btn);
 
-    karsin.appendChild(img2);
     k_t.appendChild(h4);
     k_t.appendChild(karsin);
 
@@ -83,8 +147,7 @@ function renderSimilarProducts(goods) {
     product.appendChild(img_box);
     product.appendChild(text);
 
-    // Переход на /produkt
-    product.addEventListener('click', async () => {
+    product.addEventListener('click', () => {
       sessionStorage.setItem('currentProductId', item.id);
       window.location.href = '/produkt';
     });

@@ -1,10 +1,10 @@
 const productsContainer = document.getElementById("produsts");
-const likeBox = document.getElementById("like-box"); // заглушка (пусто)
+const likeBox = document.getElementById("like-box");
 
 function renderLiked() {
   const likedItems = JSON.parse(localStorage.getItem('liked')) || [];
 
-  productsContainer.innerHTML = ''; // очищаем контейнер
+  productsContainer.innerHTML = '';
   if (likedItems.length === 0) {
     likeBox.style.display = 'block';
     productsContainer.style.display = 'none';
@@ -29,44 +29,44 @@ function createProductCard(goods) {
     const img = document.createElement('img');
     img.src = item.media;
     img.className = 'img_pr';
-   const favorite_btn = document.createElement('button');
-favorite_btn.className = 'favorite-btn';
+    const favorite_btn = document.createElement('button');
+    favorite_btn.className = 'favorite-btn';
 
-const icon = document.createElement('img');
-const liked = JSON.parse(localStorage.getItem('liked')) || [];
-const isLiked = liked.some(el => el.id === item.id);
-icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
+    const icon = document.createElement('img');
+    const liked = JSON.parse(localStorage.getItem('liked')) || [];
+    const isLiked = liked.some(el => el.id === item.id);
+    icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
 
-favorite_btn.appendChild(icon);
+    favorite_btn.appendChild(icon);
 
-favorite_btn.addEventListener("click", (e) => {
-  e.stopPropagation();
+    favorite_btn.addEventListener("click", (e) => {
+      e.stopPropagation();
 
-  let liked = JSON.parse(localStorage.getItem('liked')) || [];
+      let liked = JSON.parse(localStorage.getItem('liked')) || [];
 
-  const itemData = {
-    id: item.id,
-    title: item.title,
-    media: item.media,
-    price: item.price
-  };
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
 
-  const exists = liked.some(el => el.id === item.id);
+      const exists = liked.some(el => el.id === item.id);
 
-  if (!exists) {
-    liked.push(itemData);
-    localStorage.setItem('liked', JSON.stringify(liked));
-    icon.src = '/public/Vector2.png';
-  } else {
-    liked = liked.filter(el => el.id !== item.id);
-    localStorage.setItem('liked', JSON.stringify(liked));
-    icon.src = '/public/Vector.png';
+      if (!exists) {
+        liked.push(itemData);
+        localStorage.setItem('liked', JSON.stringify(liked));
+        icon.src = '/public/Vector2.png';
+      } else {
+        liked = liked.filter(el => el.id !== item.id);
+        localStorage.setItem('liked', JSON.stringify(liked));
+        icon.src = '/public/Vector.png';
 
-    if (window.location.pathname === "/like") {
-      renderLiked();
-    }
-  }
-});
+        if (window.location.pathname === "/like") {
+          renderLiked();
+        }
+      }
+    });
 
 
     imgBox.append(img, favorite_btn);

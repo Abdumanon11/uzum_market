@@ -80,9 +80,44 @@ function createProduct(item) {
   const btn_box = document.createElement('div');
   btn_box.className = 'btn__box';
 
+
+  function showMessage(text) {
+    const msg = document.createElement('div');
+    msg.className = 'notification';
+    msg.textContent = text;
+
+    document.body.appendChild(msg);
+
+    setTimeout(() => {
+      msg.remove();
+    }, 1000);
+  }
   const kar = document.createElement('button');
   kar.className = 'kar';
   kar.textContent = 'Добавить в корзину';
+
+  kar.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    const itemData = {
+      id: item.id,
+      title: item.title,
+      media: item.media,
+      price: item.price
+    };
+    const exists = cart.some(el => el.id === item.id);
+    if (!exists) {
+      cart.push(itemData);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      showMessage('Товар добавлен в корзину');
+    } else {
+      showMessage('Этот товар уже в корзине');
+    }
+
+  });
+
 
   const lik = document.createElement('button');
   lik.className = 'lik';
@@ -105,9 +140,9 @@ function createProduct(item) {
       if (!exists) {
         liked.push(itemData);
         localStorage.setItem('liked', JSON.stringify(liked));
-        alert('Добавлено в избранное');
+        showMessage('Добавлено в избранное');
       } else {
-        alert('Уже в избранном');
+        showMessage('Уже в избранном');
       }
     } catch (err) {
       console.error("Ошибка при добавлении в избранное:", err);

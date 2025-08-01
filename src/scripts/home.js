@@ -29,7 +29,7 @@ function renderNextBatch() {
 // Кнопка "Показать ещё"
 showMoreBtn.addEventListener('click', renderNextBatch);
 
-// Функция для создания карточек товара
+
 function createProductCard(goods) {
   const liked = JSON.parse(localStorage.getItem('liked')) || [];
 
@@ -74,12 +74,12 @@ function createProductCard(goods) {
         liked.push(itemData);
         localStorage.setItem('liked', JSON.stringify(liked));
         icon.src = '/public/Vector2.png';
-        alert('Добавлено в избранное');
+       showMessage('Добавлено в избранное');
       } else {
         liked = liked.filter(el => el.id !== item.id);
         localStorage.setItem('liked', JSON.stringify(liked));
         icon.src = '/public/Vector.png';
-        alert('Удалено из избранного');
+       showMessage('Удалено из избранного');
       }
     });
 
@@ -102,8 +102,47 @@ function createProductCard(goods) {
     h4.className = 'h4';
     h4.textContent = `${formattedPrice} сум`;
 
+    function showMessage(text) {
+      const msg = document.createElement('div');
+      msg.className = 'notification';
+      msg.textContent = text;
+
+      document.body.appendChild(msg);
+
+      setTimeout(() => {
+        msg.remove();
+      }, 1000);
+    }
+
+
     const karsin = document.createElement('button');
     karsin.className = 'karsin';
+    karsin.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
+      const exists = cart.some(el => el.id === item.id);
+      if (!exists) {
+        cart.push(itemData);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showMessage('Товар добавлен в корзину');
+      } else {
+        showMessage('Этот товар уже в корзине');
+      }
+
+    });
+
+
+
+
+
 
     const img2 = document.createElement('img');
     img2.src = '/public/Group 237756.png';

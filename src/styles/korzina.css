@@ -74,9 +74,10 @@ p {
     gap: 20px;
 }
 
-h1 {
+.h1_kr {
     padding-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
+     padding-right: 65%;
 }
 
 .price {
@@ -149,14 +150,14 @@ p {
     height: 111px;
 }
 
+h2 {
+    padding-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 .ops {
 
     padding-top: 200px;
 
-    h2 {
-        padding-bottom: 20px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
 
     p {
         padding-right: 100px;
@@ -165,12 +166,12 @@ p {
     }
 }
 
+
 p {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
 
 }
-
 
 .img_gl {
     width: 380px;
@@ -187,9 +188,7 @@ p {
 
 }
 
-h1 {
-    padding-right: 65%;
-}
+
 
 
 .tovars {
@@ -269,6 +268,11 @@ h1 {
     }
 
 }
+.p_1{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
 
 .ofr {
     width: 330px;

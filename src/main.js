@@ -12,9 +12,11 @@ const pages = [
       import('../src/styles/home.css')
       import('../src/styles/menu.css')
       import('../src/styles/swiper.css')
+      import('../src/styles/showMessage.css')
     },
-    loandScripts: async ()  => {
+    loandScripts: async () => {
       import('../src/scripts/menu.js')
+      import('../src/scripts/showMessage.js')
       import('../src/scripts/home.js')
       import('../src/scripts/swiper.js')
     }
@@ -31,7 +33,7 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/menu.css')
     },
-    loandScripts: async ()  => {
+    loandScripts: async () => {
 
       import('../src/scripts/menu.js')
     }
@@ -47,9 +49,10 @@ const pages = [
       import('../src/styles/menu.css')
       import('../src/styles/korzina.css')
     },
-    loandScripts: async ()  => {
+    loandScripts: async () => {
       import('../src/scripts/menu.js')
       import('../src/scripts/korzina.js')
+      import('../src/scripts/home.js')
     }
 
 
@@ -78,7 +81,7 @@ const pages = [
       import('../src/styles/like.css')
       import('../src/styles/menu.css')
     },
-    loandScripts: async ()  => {
+    loandScripts: async () => {
       import('../src/scripts/like.js')
       import('../src/scripts/menu.js')
     }
@@ -93,18 +96,21 @@ const pages = [
       import('../src/styles/produkt.css')
       import('../src/styles/menu.css')
       import('../src/styles/productpx.css')
+      import('../src/styles/showMessage.css')
     },
-    loandScripts: async ()  => {
+    loandScripts: async () => {
       import('../src/scripts/produkt.js')
       import('../src/scripts/menu.js')
       import('../src/scripts/productpx.js')
+      import('../src/scripts/showMessage.js')
+
     }
 
   }
 
 ]
 
-async function error(app){
+async function error(app) {
   const home = await axios.get('/src/pages/404.html')
   await import('../src/styles/404.css')
   await import('../src/scripts/404.js')
