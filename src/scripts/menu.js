@@ -71,3 +71,43 @@ allMenuLinks.forEach(link => {
     link.classList.add('active');
   }
 });
+
+
+// Создание модалки
+const modal = document.createElement('div');
+modal.className = 'modal';
+
+const modalContent = document.createElement('div');
+modalContent.className = 'modal_content';
+
+const title = document.createElement('p');
+title.textContent = 'Категории товаров';
+
+const bt = document.createElement('button');
+bt.className = 'bt';
+bt.innerHTML = '<h1>Бытовая техника</h1>';
+
+const od = document.createElement('button');
+od.className = 'od';
+od.innerHTML = '<h1>Одежда</h1>';
+
+const ob = document.createElement('button');
+ob.className = 'ob';
+ob.innerHTML = '<h1>Обувь</h1>';
+
+// Собираем модалку
+modalContent.append(title, bt, od, ob);
+modal.appendChild(modalContent);
+document.body.appendChild(modal);
+
+// Открытие по кнопке "Каталог"
+katalog.addEventListener('click', () => {
+  modal.classList.add('active');
+});
+
+// Закрытие при клике вне контента
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.classList.remove('active');
+  }
+});

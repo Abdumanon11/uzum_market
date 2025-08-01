@@ -1,88 +1,90 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 
 }
 
 
 .menu {
-    width: 100%;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 100px;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 100px;
 
 
 }
 
 .const_menu {
-    display: flex;
-    height: 52px;
-    padding: 10px;
-    gap: 20px;
-    text-align: center;
+  display: flex;
+  height: 52px;
+  padding: 10px;
+  gap: 20px;
+  text-align: center;
 
 }
 
 .kr_nm {
-    display: flex;
+  display: flex;
 }
 
 
 #ava_img {
-    padding-top: 7px;
-    width: 12px;
-    height: 19px;
+  padding-top: 7px;
+  width: 12px;
+  height: 19px;
 }
 
 .katalog {
-    width: 80px;
-    height: 32px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #3333CC;
-    border-radius: 4px;
-    border: 0;
+  width: 80px;
+  height: 32px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #3333CC;
+  border-radius: 4px;
+  border: 0;
 }
+
 #search-input {
-    width: 698px;
-    height: 32px;
+  width: 698px;
+  height: 32px;
 
-    padding-left: 10px;
-    border-radius: 4px;
-    border-width: 1px;
+  padding-left: 10px;
+  border-radius: 4px;
+  border-width: 1px;
 
 
 }
 
-   .search-wrapper{
-    position:relative;
-  }
+.search-wrapper {
+  position: relative;
+}
 
-  .decoration{
-    position:absolute;
-    right:16px;
-    top:50%;
-    transform:translateY(-50%);
-    font-size:20px;
-    font-weight:bold;
-    color:#b3b3b3;
-    
+.decoration {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #b3b3b3;
 
-  }
+
+}
+
 a {
-    text-decoration: none;
-    color: #000000;
-;
+  text-decoration: none;
+  color: #000000;
+  ;
 }
 
 #izb {
-     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-#kor{
-     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+#kor {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 
@@ -116,6 +118,68 @@ a {
 
 
 
-.box{
-     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.box {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+.modal {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 0;
+
+
+}
+
+.modal_content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+  padding-right: 350px;
+
+
+}
+
+.modal_content button {
+  border: 0;
+  background-color: white;
+}
+
+.od {
+  width: 95px;
+}
+
+.ob{
+
+    width: 95px;
+
+}
+.modal_content p {
+  color: #ACACAC;
+;
+}
+
+.modal {
+  display: none; /* Скрыто по умолчанию */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* затемнение */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal.active {
+  display: flex; /* Показываем при активном классе */
+}
+
+.modal_content {
+  background-color: white;
+  padding: 20px 40px;
+  border-radius: 8px;
+  text-align: center;
 }
