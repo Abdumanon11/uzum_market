@@ -13,7 +13,7 @@ if (id) {
 }
 
 function createProduct(item) {
-  console.log(item);
+  console.log(item.type);
 
   const product = document.getElementById('pro_box');
   if (!product) return console.error('Контейнер #pro_box не найден');

@@ -34,6 +34,7 @@ function createProductCard(goods) {
   const liked = JSON.parse(localStorage.getItem('liked')) || [];
 
   for (let item of goods) {
+      console.log(item.type);
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
     const product = document.createElement('div');
