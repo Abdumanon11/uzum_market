@@ -1,39 +1,30 @@
 import axios from "axios";
 
-let allGoods = [];
-let currentIndex = 0;
-const batchSize = 10;
-
 const productsContainer = document.getElementById("produsts");
-const showMoreBtn = document.getElementById("show-more-btn");
 
-// Загрузка товаров
+// Получаем параметры из URL
+const params = new URLSearchParams(window.location.search);
+const typeFilter = params.get('type'); // <- фильтр типа, например: "Компьютер"
+
 axios.get('http://localhost:7777/goods')
-  .then((res) => {
-    allGoods = res.data;
-    renderNextBatch();
+  .then(res => {
+    let goods = res.data;
+
+    // 🔍 Если есть фильтр в URL, отфильтруем
+    if (typeFilter) {
+      goods = goods.filter(item => item.type === typeFilter);
+    }
+
+    renderProducts(goods); // отрисовать карточки товаров
   })
-  .catch((err) => console.error('Ошибка при загрузке:', err));
+  .catch(err => {
+    console.error('Ошибка при загрузке товаров:', err);
+  });
 
-function renderNextBatch() {
-  const nextItems = allGoods.slice(currentIndex, currentIndex + batchSize);
-  createProductCard(nextItems);
-  currentIndex += batchSize;
-
-  if (currentIndex >= allGoods.length) {
-    showMoreBtn.style.display = 'none';
-  }
-}
-
-
-showMoreBtn.addEventListener('click', renderNextBatch);
-
-
-function createProductCard(goods) {
-  const liked = JSON.parse(localStorage.getItem('liked')) || [];
+function renderProducts(goods) {
+  productsContainer.innerHTML = '';
 
   for (let item of goods) {
-      console.log(item.type);
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
     const product = document.createElement('div');
@@ -51,14 +42,13 @@ function createProductCard(goods) {
     favorite_btn.className = 'favorite-btn';
 
     const icon = document.createElement('img');
+    const liked = JSON.parse(localStorage.getItem('liked')) || [];
     const isLiked = liked.some(el => el.id === item.id);
     icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
-
     favorite_btn.appendChild(icon);
 
     favorite_btn.addEventListener("click", (e) => {
       e.stopPropagation();
-
       let liked = JSON.parse(localStorage.getItem('liked')) || [];
 
       const itemData = {
@@ -74,15 +64,14 @@ function createProductCard(goods) {
         liked.push(itemData);
         localStorage.setItem('liked', JSON.stringify(liked));
         icon.src = '/public/Vector2.png';
-       showMessage('Добавлено в избранное');
+        showMessage('Добавлено в избранное');
       } else {
         liked = liked.filter(el => el.id !== item.id);
         localStorage.setItem('liked', JSON.stringify(liked));
         icon.src = '/public/Vector.png';
-       showMessage('Удалено из избранного');
+        showMessage('Удалено из избранного');
       }
     });
-
 
     const text = document.createElement('div');
     text.className = 'text';
@@ -102,24 +91,11 @@ function createProductCard(goods) {
     h4.className = 'h4';
     h4.textContent = `${formattedPrice} сум`;
 
-    function showMessage(text) {
-      const msg = document.createElement('div');
-      msg.className = 'notification';
-      msg.textContent = text;
-
-      document.body.appendChild(msg);
-
-      setTimeout(() => {
-        msg.remove();
-      }, 1000);
-    }
-
-
     const karsin = document.createElement('button');
     karsin.className = 'karsin';
+
     karsin.addEventListener("click", (e) => {
       e.stopPropagation();
-
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
       const itemData = {
@@ -128,6 +104,7 @@ function createProductCard(goods) {
         media: item.media,
         price: item.price
       };
+
       const exists = cart.some(el => el.id === item.id);
       if (!exists) {
         cart.push(itemData);
@@ -136,22 +113,12 @@ function createProductCard(goods) {
       } else {
         showMessage('Этот товар уже в корзине');
       }
-
     });
-
-
-
-
-
 
     const img2 = document.createElement('img');
     img2.src = '/public/Group 237756.png';
-
-    // Сборка DOM
-    img_box.appendChild(img_pr);
-    img_box.appendChild(favorite_btn);
-
     karsin.appendChild(img2);
+
     k_t.appendChild(h4);
     k_t.appendChild(karsin);
 
@@ -159,13 +126,15 @@ function createProductCard(goods) {
     text.appendChild(skd);
     text.appendChild(k_t);
 
+    img_box.appendChild(img_pr);
+    img_box.appendChild(favorite_btn);
+
     product.appendChild(img_box);
     product.appendChild(text);
 
-    product.addEventListener('click', async () => {
+    product.addEventListener('click', () => {
       const id = product.dataset.id;
       sessionStorage.setItem('currentProductId', id);
-
       window.history.pushState({}, '', '/produkt');
       location.reload();
     });
@@ -174,3 +143,14 @@ function createProductCard(goods) {
   }
 }
 
+function showMessage(text) {
+  const msg = document.createElement('div');
+  msg.className = 'notification';
+  msg.textContent = text;
+
+  document.body.appendChild(msg);
+
+  setTimeout(() => {
+    msg.remove();
+  }, 1000);
+}

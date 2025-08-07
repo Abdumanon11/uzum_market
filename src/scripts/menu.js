@@ -1,7 +1,6 @@
 import axios from "axios";
 
-// ---------- Верхнее меню ----------
-
+// --- ЭЛЕМЕНТЫ МЕНЮ ---
 const img_g = document.createElement('img');
 img_g.src = '/public/Group.png';
 img_g.alt = 'Логотип';
@@ -37,19 +36,18 @@ izbreni.textContent = 'Избранные';
 izbreni.className = 'menuu';
 izbreni.id = 'izb';
 
-const kr_nm = document.createElement('div');
-kr_nm.className = 'kr_nm';
-
 const korzina = document.createElement('a');
 korzina.href = '/korzina';
 korzina.textContent = 'Корзина';
 korzina.className = 'menuu';
 korzina.id = 'kor';
 
+const kr_nm = document.createElement('div');
+kr_nm.className = 'kr_nm';
+
 const box = document.createElement('div');
 box.className = 'box';
 
-// Вставляем в меню
 decoration.appendChild(img_public);
 search_w.append(search, decoration);
 kr_nm.append(korzina);
@@ -63,14 +61,12 @@ img_g.addEventListener('click', () => {
 
 const allMenuLinks = document.querySelectorAll('.menuu');
 const currentPath = window.location.pathname;
-
 allMenuLinks.forEach(link => {
   if (link.getAttribute('href') === currentPath) {
     link.classList.add('active');
   }
 });
 
-// ---------- Модальное окно ----------
 
 const modal = document.createElement('div');
 modal.className = 'modal';
@@ -89,7 +85,7 @@ modalContent.appendChild(title);
 modal.appendChild(modalContent);
 menu.appendChild(modal);
 
-// Открытие и закрытие
+// Открытие/закрытие модалки
 katalog.addEventListener('click', () => {
   modal.classList.toggle('active');
   overlay.classList.toggle('active');
@@ -100,34 +96,85 @@ overlay.addEventListener('click', () => {
   overlay.classList.remove('active');
 });
 
-modal.addEventListener('click', (e) => {
-  if (e.target === modal) {
-    modal.classList.remove('active');
-  }
-});
 
-// ---------- Получаем категории и выводим ----------
+let allGoods = [];
 
 axios.get('http://localhost:7777/goods')
   .then(res => {
-    const goods = res.data;
+    allGoods = res.data;
 
-    // Считаем количество товаров по типу
     const categories = {};
-
-    for (const item of goods) {
+    for (const item of allGoods) {
       const type = item.type;
       categories[type] = (categories[type] || 0) + 1;
     }
 
-    // Выводим кнопки по категориям
     for (const [type, count] of Object.entries(categories)) {
       const btn = document.createElement('button');
       btn.className = 'category_btn';
-      btn.innerHTML = `<h1>${type}<span class="count">(${count})</span></h1>`;
+      btn.innerHTML = `<h1>${type} <span class="count">(${count})</span></h1>`;
+      btn.addEventListener('click', () => {
+        const encodedType = encodeURIComponent(type);
+        window.location.href = `/katalog?type=${encodedType}`;
+      });
       modalContent.appendChild(btn);
     }
   })
   .catch(err => {
     console.error('Ошибка при загрузке товаров:', err);
   });
+
+
+
+const searchModal = document.createElement('div');
+searchModal.id = 'search-modal';
+searchModal.className = 'hidden';
+
+const resultsContainer = document.createElement('div');
+resultsContainer.className = 'results-container';
+searchModal.appendChild(resultsContainer);
+document.body.appendChild(searchModal);
+
+
+search.addEventListener('input', () => {
+  const query = search.value.trim().toLowerCase();
+
+  if (query === '') {
+    searchModal.classList.add('hidden');
+    resultsContainer.innerHTML = '';
+    return;
+  }
+
+  const filtered = allGoods.filter(item =>
+    item.title.toLowerCase().includes(query)
+  );
+
+  resultsContainer.innerHTML = '';
+
+  if (filtered.length === 0) {
+    const noResult = document.createElement('p');
+    noResult.textContent = 'Нет совпадений';
+    resultsContainer.appendChild(noResult);
+  } else {
+    filtered.forEach(item => {
+      const resultItem = document.createElement('div');
+      resultItem.textContent = item.title;
+      resultItem.className = 'result-item';
+
+      resultItem.addEventListener('click', () => {
+        sessionStorage.setItem('currentProductId', item.id);
+        window.location.href = '/produkt';
+      });
+
+      resultsContainer.appendChild(resultItem);
+    });
+  }
+
+  searchModal.classList.remove('hidden');
+});
+
+document.addEventListener('click', (e) => {
+  if (!search.contains(e.target) && !searchModal.contains(e.target)) {
+    searchModal.classList.add('hidden');
+  }
+});

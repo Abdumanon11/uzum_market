@@ -71,8 +71,45 @@ function createProductCard(goods) {
 
     imgBox.append(img, favorite_btn);
 
+
+        const karsin = document.createElement('button');
+    karsin.className = 'karsin';
+    karsin.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
+      const exists = cart.some(el => el.id === item.id);
+      if (!exists) {
+        cart.push(itemData);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        showMessage('Товар добавлен в корзину');
+      } else {
+        showMessage('Этот товар уже в корзине');
+      }
+
+    });
+
+
+
+
+
+
+    const img2 = document.createElement('img');
+    img2.src = '/public/Group 237756.png';
+
+
     const text = document.createElement('div');
     text.className = 'text';
+
+    const box_text = document.createElement('div')
+    box_text.className = 'box_text'
 
     const title = document.createElement('p');
     title.className = 'tide';
@@ -82,8 +119,12 @@ function createProductCard(goods) {
     price.className = 'skd';
     price.textContent = `${formattedPrice} сум`;
 
-    text.append(title, price);
-    product.append(imgBox, text);
+
+    karsin.appendChild(img2)
+    text.append(title);
+    box_text.append( price , karsin)
+    product.append(imgBox, text,box_text);
+
 
     product.addEventListener('click', () => {
       sessionStorage.setItem('currentProductId', item.id);

@@ -38,6 +38,25 @@ const pages = [
       import('../src/scripts/menu.js')
     }
   },
+
+    {
+    path: '/katalog',
+    view: async (app) => {
+      const home = await axios.get('/src/pages/katalog.html')
+      app.innerHTML = home.data
+    },
+    loandStyles: async () => {
+      import('../src/styles/katalog.css')
+      import('../src/styles/menu.css')
+
+    },
+    loandScripts: async () => {
+      import('../src/scripts/katalog.js')
+      import('../src/scripts/menu.js')
+
+    }
+
+  },
   {
     path: '/korzina',
     view: async (app) => {

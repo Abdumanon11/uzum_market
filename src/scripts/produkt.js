@@ -13,8 +13,6 @@ if (id) {
 }
 
 function createProduct(item) {
-  console.log(item.type);
-
   const product = document.getElementById('pro_box');
   if (!product) return console.error('Контейнер #pro_box не найден');
 
@@ -56,14 +54,33 @@ function createProduct(item) {
   const num_box = document.createElement('div');
   num_box.className = 'num_box';
 
-  const button = document.createElement('button');
-  button.textContent = '-';
+  const minusBtn = document.createElement('button');
+  minusBtn.textContent = '-';
 
-  const p = document.createElement('p');
-  p.textContent = '1';
+  const quantityText = document.createElement('p');
+  quantityText.textContent = '1';
 
-  const button_2 = document.createElement('button');
-  button_2.textContent = '+';
+  const plusBtn = document.createElement('button');
+  plusBtn.textContent = '+';
+
+  let quantity = 1;
+  plusBtn.onclick = () => {
+    quantity++;
+    quantityText.textContent = quantity;
+    updateTotal();
+  };
+  minusBtn.onclick = () => {
+    if (quantity > 1) {
+      quantity--;
+      quantityText.textContent = quantity;
+      updateTotal();
+    }
+  };
+
+  function updateTotal() {
+    const total = (item.price * quantity).toLocaleString('ru-RU');
+    h3_2.textContent = `${total} сум`;
+  }
 
   const pl_box = document.createElement('div');
   pl_box.className = 'pl_box';
@@ -80,32 +97,26 @@ function createProduct(item) {
   const btn_box = document.createElement('div');
   btn_box.className = 'btn__box';
 
-
   function showMessage(text) {
     const msg = document.createElement('div');
     msg.className = 'notification';
     msg.textContent = text;
-
     document.body.appendChild(msg);
-
-    setTimeout(() => {
-      msg.remove();
-    }, 1000);
+    setTimeout(() => msg.remove(), 1000);
   }
+
   const kar = document.createElement('button');
   kar.className = 'kar';
   kar.textContent = 'Добавить в корзину';
 
-  kar.addEventListener("click", (e) => {
-    e.stopPropagation();
-
+  kar.addEventListener("click", () => {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
     const itemData = {
       id: item.id,
       title: item.title,
       media: item.media,
-      price: item.price
+      price: item.price,
+      quantity,
     };
     const exists = cart.some(el => el.id === item.id);
     if (!exists) {
@@ -115,37 +126,27 @@ function createProduct(item) {
     } else {
       showMessage('Этот товар уже в корзине');
     }
-
   });
-
 
   const lik = document.createElement('button');
   lik.className = 'lik';
   lik.textContent = 'Добавить в избранное';
 
-  lik.addEventListener("click", (e) => {
-    e.stopPropagation();
-
-    try {
-      const liked = JSON.parse(localStorage.getItem('liked')) || [];
-
-      const itemData = {
-        id: item.id,
-        title: item.title,
-        media: item.media,
-        price: item.price
-      };
-
-      const exists = liked.some(el => el.id === item.id);
-      if (!exists) {
-        liked.push(itemData);
-        localStorage.setItem('liked', JSON.stringify(liked));
-        showMessage('Добавлено в избранное');
-      } else {
-        showMessage('Уже в избранном');
-      }
-    } catch (err) {
-      console.error("Ошибка при добавлении в избранное:", err);
+  lik.addEventListener("click", () => {
+    const liked = JSON.parse(localStorage.getItem('liked')) || [];
+    const itemData = {
+      id: item.id,
+      title: item.title,
+      media: item.media,
+      price: item.price
+    };
+    const exists = liked.some(el => el.id === item.id);
+    if (!exists) {
+      liked.push(itemData);
+      localStorage.setItem('liked', JSON.stringify(liked));
+      showMessage('Добавлено в избранное');
+    } else {
+      showMessage('Уже в избранном');
     }
   });
 
@@ -159,32 +160,13 @@ function createProduct(item) {
   pp_2.textContent = item.description;
 
   // Сборка
-  pr_img.appendChild(box_img);
-  pr_img.appendChild(img_gl);
-
-  price.appendChild(h3);
-  price.appendChild(h3_2);
-
-  num_box.appendChild(button);
-  num_box.appendChild(p);
-  num_box.appendChild(button_2);
-
+  pr_img.append(box_img, img_gl);
+  price.append(h3, h3_2);
+  num_box.append(minusBtn, quantityText, plusBtn);
   pl_box.appendChild(poloska);
   pp.appendChild(p_2);
-
-  btn_box.appendChild(kar);
-  btn_box.appendChild(lik);
-
-  ops.appendChild(h2);
-  ops.appendChild(pp_2);
-
-  text_box.appendChild(h1);
-  text_box.appendChild(price);
-  text_box.appendChild(num_box);
-  text_box.appendChild(pl_box);
-  text_box.appendChild(pp);
-  text_box.appendChild(btn_box);
-  text_box.appendChild(ops);
-
+  btn_box.append(kar, lik);
+  ops.append(h2, pp_2);
+  text_box.append(h1, price, num_box, pl_box, pp, btn_box, ops);
   product.append(pr_img, text_box);
 }

@@ -7,5 +7,5 @@ function showMessage(text) {
 
   setTimeout(() => {
     msg.remove();
-  }, 3000); // Удалится через 3 секунды
+  }, 3000); 
 }

@@ -5,31 +5,6 @@
 }
 
 
-.conteiner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-h1{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-}
-
-p{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-}
-
-
-
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-
 .conteinet {
     width: 100%;
     height: 100%;
@@ -40,8 +15,6 @@ p{
 .const_pr {
     max-width: 1700px;
     height: 100%;
-
-    
 }
 
 .skd {
@@ -49,7 +22,6 @@ p{
     text-decoration: line-through;
     font-size: 14px;
     margin-top: 4px;
-    padding-left: 36px;
 }
 
 
@@ -103,7 +75,7 @@ p{
 .karsin {
     background-color: white;
     border: 0;
-    padding-left: 30%;
+    padding-left: 45%;
 
 }
 
@@ -138,8 +110,4 @@ p{
     color: #3333CC;
 
 
-}
-
-.box_text{
-    display: flex;
 }
