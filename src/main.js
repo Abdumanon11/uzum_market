@@ -13,6 +13,7 @@ const pages = [
       import('../src/styles/menu.css')
       import('../src/styles/swiper.css')
       import('../src/styles/showMessage.css')
+      import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
       import('../src/scripts/menu.js')
@@ -32,6 +33,7 @@ const pages = [
 
     loandStyles: async () => {
       import('../src/styles/menu.css')
+       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
 
@@ -48,6 +50,7 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/katalog.css')
       import('../src/styles/menu.css')
+       import('../src/styles/mediya.css')
 
     },
     loandScripts: async () => {
@@ -67,6 +70,7 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/menu.css')
       import('../src/styles/korzina.css')
+       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
       import('../src/scripts/menu.js')
@@ -99,6 +103,7 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/like.css')
       import('../src/styles/menu.css')
+       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
       import('../src/scripts/like.js')
@@ -116,6 +121,7 @@ const pages = [
       import('../src/styles/menu.css')
       import('../src/styles/productpx.css')
       import('../src/styles/showMessage.css')
+       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
       import('../src/scripts/produkt.js')
