@@ -1,9 +1,9 @@
 import jsonServer from "json-server";
-
 const server = jsonServer.create();
-const router = jsonServer.router("./db.json");
+const router = jsonServer.router("db.json"); // твой файл базы
 const middlewares = jsonServer.defaults();
 
+// Разрешаем CORS
 server.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE");
