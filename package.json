@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "db": "json-server ./db.json -p 7777" 
+    "db": "node server.js"
+
   },
   "devDependencies": {
     "vite": "^7.0.4"
