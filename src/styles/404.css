@@ -16,7 +16,6 @@
       overflow:hidden;
     }
 
-    /* плавающие конфетти */
     .confetti{
       position:absolute;
       width:12px;height:12px;
@@ -30,7 +29,7 @@
       to{transform:translateY(110vh) rotate(360deg);}
     }
 
-    /* блок 404 */
+
     .wrapper{
       text-align:center;
       z-index:10;
@@ -119,7 +118,6 @@
       filter:blur(8px);
     }
 
-    /* адаптив */
     @media(max-width:600px){
       h1{font-size:80px;}
       h2{font-size:22px;}

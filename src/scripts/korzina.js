@@ -74,6 +74,12 @@ function cretkorzina(goods) {
   ofr.classList.add('ofr');
   ofr.textContent = 'Оформить';
 
+  ofr.addEventListener('click', () => {
+    modal_ofr.classList.add('active');
+    overlay_md.classList.add('active');
+  });
+
+
   function updateTotal() {
     p_pr.textContent = `${totalSum.toLocaleString("ru-RU")} сум`;
     const countTovars = tovars.querySelectorAll('.tovar').length;
@@ -166,7 +172,7 @@ function cretkorzina(goods) {
   box_ofr.append(p_pr, itogo, ofr);
 }
 
-// Обновляет количество товара в localStorage
+
 function updateCartStorage(id, count) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   const idx = cart.findIndex(el => el.id === id);
@@ -176,9 +182,49 @@ function updateCartStorage(id, count) {
   }
 }
 
-// Удаляет товар из localStorage
 function removeFromCart(id) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
   cart = cart.filter(el => el.id !== id);
   localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+
+const overlay_md = document.createElement("div")
+overlay_md.className = "overlay_md"
+document.body.appendChild(overlay_md)
+
+
+const modal_ofr  = document.createElement("div")
+modal_ofr.classList.add("modal_ofr")
+
+
+ const modal_ofr_content = document.createElement("div")
+ modal_ofr_content.classList.add("modal_ofr-content")
+
+ const h1 = document.createElement("h1")
+ h1.textContent = "Заказ офорлен"
+ h1.classList.add = ("h1_1")
+
+ const button_b = document.createElement("button")
+ button_b.textContent = "Продолжать покупку"
+ button_b.classList.add("button_b")
+
+ button_b.addEventListener('click', () => {
+  window.location.href = '/';
+});
+
+
+ modal_ofr_content.append(h1 , button_b)
+ modal_ofr.appendChild(modal_ofr_content)
+ document.body.appendChild(modal_ofr)
+
+  overlay_md.addEventListener('click', () =>{
+  modal_ofr.classList.remove('active')
+  overlay_md.classList.remove('active')
+ })
+
+ 
+
+
+
+

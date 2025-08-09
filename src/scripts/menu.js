@@ -55,12 +55,12 @@ kr_nm.append(korzina);
 const menu = document.getElementById('const_menu');
 menu.append(img_g, katalog, search_w, img_ava, izbreni, kr_nm, box);
 
-// --- Переход на главную ---
+
 img_g.addEventListener('click', () => {
   window.location.href = '/';
 });
 
-// --- Выделение активной страницы ---
+
 const allMenuLinks = document.querySelectorAll('.menuu');
 const currentPath = window.location.pathname;
 allMenuLinks.forEach(link => {
@@ -69,7 +69,7 @@ allMenuLinks.forEach(link => {
   }
 });
 
-// --- МОДАЛКА КАТАЛОГА ---
+
 const overlayCatalog = document.createElement('div');
 overlayCatalog.className = 'overlay';
 document.body.appendChild(overlayCatalog);
@@ -97,7 +97,7 @@ overlayCatalog.addEventListener('click', () => {
   overlayCatalog.classList.remove('active');
 });
 
-// --- ЗАГРУЗКА ТОВАРОВ ---
+
 let allGoods = [];
 
 axios.get('http://localhost:7777/goods')
