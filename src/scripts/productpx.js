@@ -1,20 +1,14 @@
 import axios from "axios";
+import {
+  getLikedProducts,
+  saveLikedProducts,
+  getCartProducts,
+  saveCartProducts
+} from "./storage.js";
+import { showMessage } from "./showMessage.js";
 
-const similarContainer = document.getElementById("produsts"); 
+const similarContainer = document.getElementById("produsts");
 const currentId = sessionStorage.getItem("currentProductId");
-
-// Показать сообщение без alert
-function showMessage(text) {
-  const msg = document.createElement('div');
-  msg.className = 'notification';
-  msg.textContent = text;
-
-  document.body.appendChild(msg);
-
-  setTimeout(() => {
-    msg.remove();
-  }, 1500); // 1.5 сек
-}
 
 axios.get("http://localhost:7777/goods")
   .then((res) => {
@@ -50,40 +44,40 @@ function renderSimilarProducts(goods) {
     img_pr.src = item.media;
     img_pr.className = 'img_pr';
 
-    // Избранное
+
     const favorite_btn = document.createElement('button');
     favorite_btn.className = 'favorite-btn';
-const icon = document.createElement('img');
-const isLiked = liked.some(el => el.id === item.id);
-icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png'; // ← Меняет иконку при загрузке
-favorite_btn.appendChild(icon);
+    const icon = document.createElement('img');
+    const isLiked = liked.some(el => el.id === item.id);
+    icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png'; // ← Меняет иконку при загрузке
+    favorite_btn.appendChild(icon);
 
-favorite_btn.addEventListener("click", (e) => {
-  e.stopPropagation();
+    favorite_btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      let liked = getLikedProducts();
 
-  let liked = JSON.parse(localStorage.getItem('liked')) || [];
+      const itemData = {
+        id: item.id,
+        title: item.title,
+        media: item.media,
+        price: item.price
+      };
 
-  const itemData = {
-    id: item.id,
-    title: item.title,
-    media: item.media,
-    price: item.price
-  };
+      const exists = liked.some(el => el.id === item.id);
 
-  const exists = liked.some(el => el.id === item.id);
+      if (!exists) {
+        liked.push(itemData);
+        saveLikedProducts(liked);
+        icon.src = '/public/Vector2.png';
+        showMessage('Добавлено в избранное');
+      } else {
+        liked = liked.filter(el => el.id !== item.id);
+        saveLikedProducts(liked);
+        icon.src = '/public/Vector.png';
+        showMessage('Удалено из избранного');
+      }
 
-  if (!exists) {
-    liked.push(itemData);
-    localStorage.setItem('liked', JSON.stringify(liked));
-    icon.src = '/public/Vector2.png'; // ← Поменять на лайкнутую
-    showMessage('Добавлено в избранное');
-  } else {
-    liked = liked.filter(el => el.id !== item.id);
-    localStorage.setItem('liked', JSON.stringify(liked));
-    icon.src = '/public/Vector.png'; // ← Поменять на обычную
-    showMessage('Удалено из избранного');
-  }
-});
+    });
 
     const text = document.createElement('div');
     text.className = 'text';
@@ -113,8 +107,7 @@ favorite_btn.addEventListener("click", (e) => {
 
     karsin.addEventListener("click", (e) => {
       e.stopPropagation();
-
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cart = getCartProducts();
 
       const itemData = {
         id: item.id,
@@ -124,9 +117,10 @@ favorite_btn.addEventListener("click", (e) => {
       };
 
       const exists = cart.some(el => el.id === item.id);
+
       if (!exists) {
         cart.push(itemData);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        saveCartProducts(cart);
         showMessage('Товар добавлен в корзину');
       } else {
         showMessage('Этот товар уже в корзине');

@@ -31,7 +31,9 @@ btn_get_code.addEventListener('click', () => {
   }
 
   localStorage.setItem('userPhone', phone);
+
   alert('Регистрация прошла успешно!');
+
   modal_ps.classList.remove('active');
   overlay_ps.classList.remove('active');
 });
@@ -42,11 +44,15 @@ document.body.appendChild(modal_ps);
 
 
 const img_ava = document.getElementById('ava_img');
-img_ava.addEventListener('click', () => {
-  modal_ps.classList.add('active');
-  overlay_ps.classList.add('active');
-});
 
+if (!img_ava) {
+  console.error('Аватар #ava_img не найден');
+} else {
+  img_ava.addEventListener('click', () => {
+    modal_ps.classList.add('active');
+    overlay_ps.classList.add('active');
+  });
+}
 
 overlay_ps.addEventListener('click', () => {
   modal_ps.classList.remove('active');

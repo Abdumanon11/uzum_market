@@ -1,4 +1,4 @@
-function showMessage(text) {
+export function showMessage(text) {
   const msg = document.createElement('div');
   msg.className = 'notification';
   msg.textContent = text;

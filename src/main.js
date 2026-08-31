@@ -16,7 +16,8 @@ const pages = [
       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-      import('../src/scripts/menu.js')
+      await import('../src/scripts/menu.js')
+      await import('../src/scripts/modal_reg.js')
       import('../src/scripts/showMessage.js')
       import('../src/scripts/home.js')
       import('../src/scripts/swiper.js')
@@ -33,15 +34,15 @@ const pages = [
 
     loandStyles: async () => {
       import('../src/styles/menu.css')
-       import('../src/styles/mediya.css')
+      import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-
-      import('../src/scripts/menu.js')
+      await import('../src/scripts/menu.js')
+      await import('../src/scripts/modal_reg.js')
     }
   },
 
-    {
+  {
     path: '/katalog',
     view: async (app) => {
       const home = await axios.get('/src/pages/katalog.html')
@@ -50,12 +51,14 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/katalog.css')
       import('../src/styles/menu.css')
-       import('../src/styles/mediya.css')
+      import('../src/styles/mediya.css')
+      import('../src/styles/showMessage.css')
 
     },
     loandScripts: async () => {
       import('../src/scripts/katalog.js')
-      import('../src/scripts/menu.js')
+      await import('../src/scripts/menu.js')
+      await import('../src/scripts/modal_reg.js')
 
     }
 
@@ -70,19 +73,19 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/menu.css')
       import('../src/styles/korzina.css')
-       import('../src/styles/mediya.css')
+      import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-      import('../src/scripts/menu.js')
+      await import('../src/scripts/menu.js')
+      await import('../src/scripts/modal_reg.js')
       import('../src/scripts/korzina.js')
-      import('../src/scripts/home.js')
     }
 
 
 
   },
   {
-    path: '/404 ',
+    path: '/404',
     view: async (app) => {
       const home = await axios.get('/src/pages/404.html')
       app.innerHTML = home.data
@@ -103,11 +106,13 @@ const pages = [
     loandStyles: async () => {
       import('../src/styles/like.css')
       import('../src/styles/menu.css')
-       import('../src/styles/mediya.css')
+      import('../src/styles/mediya.css')
+      import('../src/styles/showMessage.css')
     },
     loandScripts: async () => {
       import('../src/scripts/like.js')
-      import('../src/scripts/menu.js')
+      await import('../src/scripts/menu.js')
+      await import('../src/scripts/modal_reg.js')
     }
   },
   {
@@ -121,11 +126,12 @@ const pages = [
       import('../src/styles/menu.css')
       import('../src/styles/productpx.css')
       import('../src/styles/showMessage.css')
-       import('../src/styles/mediya.css')
+      import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
       import('../src/scripts/produkt.js')
-      import('../src/scripts/menu.js')
+      await import('../src/scripts/menu.js')
+      await import('../src/scripts/modal_reg.js')
       import('../src/scripts/productpx.js')
       import('../src/scripts/showMessage.js')
 

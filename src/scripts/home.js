@@ -1,4 +1,13 @@
 import axios from "axios";
+import { showMessage } from "./showMessage.js";
+import {
+    getLikedProducts,
+    saveLikedProducts,
+    getCartProducts,
+    saveCartProducts
+} from "./storage.js";
+
+
 
 let allGoods = [];
 let currentIndex = 0;
@@ -24,16 +33,41 @@ function renderNextBatch() {
     showMoreBtn.style.display = 'none';
   }
 }
-
-
 showMoreBtn.addEventListener('click', renderNextBatch);
 
+function createProductData(item) {
+  return {
+    id: item.id,
+    title: item.title,
+    media: item.media,
+    price: item.price
+  };
+}
+function toggleFavorite(item, icon) {
+  let likedProducts = getLikedProducts();
+
+  const itemData = createProductData(item);
+  const exists = likedProducts.some(el => el.id === item.id);
+
+  if (!exists) {
+    likedProducts.push(itemData);
+    saveLikedProducts(likedProducts);
+
+    icon.src = "/Vector2.png";
+    showMessage("Добавлено в избранное");
+  } else {
+    likedProducts = likedProducts.filter(el => el.id !== item.id);
+    saveLikedProducts(likedProducts);
+
+    icon.src = "/Vector.png";
+    showMessage("Удалено из избранного");
+  }
+}
 
 function createProductCard(goods) {
-  const liked = JSON.parse(localStorage.getItem('liked')) || [];
+  const likedProducts = getLikedProducts();
 
   for (let item of goods) {
-      console.log(item.type);
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
     const product = document.createElement('div');
@@ -51,36 +85,14 @@ function createProductCard(goods) {
     favorite_btn.className = 'favorite-btn';
 
     const icon = document.createElement('img');
-    const isLiked = liked.some(el => el.id === item.id);
-    icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
+    const isLiked = likedProducts.some(el => el.id === item.id);
+    icon.src = isLiked ? "/Vector2.png" : "/Vector.png";
 
     favorite_btn.appendChild(icon);
 
     favorite_btn.addEventListener("click", (e) => {
       e.stopPropagation();
-
-      let liked = JSON.parse(localStorage.getItem('liked')) || [];
-
-      const itemData = {
-        id: item.id,
-        title: item.title,
-        media: item.media,
-        price: item.price
-      };
-
-      const exists = liked.some(el => el.id === item.id);
-
-      if (!exists) {
-        liked.push(itemData);
-        localStorage.setItem('liked', JSON.stringify(liked));
-        icon.src = '/public/Vector2.png';
-       showMessage('Добавлено в избранное');
-      } else {
-        liked = liked.filter(el => el.id !== item.id);
-        localStorage.setItem('liked', JSON.stringify(liked));
-        icon.src = '/public/Vector.png';
-       showMessage('Удалено из избранного');
-      }
+      toggleFavorite(item, icon);
     });
 
 
@@ -102,50 +114,25 @@ function createProductCard(goods) {
     h4.className = 'h4';
     h4.textContent = `${formattedPrice} сум`;
 
-    function showMessage(text) {
-      const msg = document.createElement('div');
-      msg.className = 'notification';
-      msg.textContent = text;
-
-      document.body.appendChild(msg);
-
-      setTimeout(() => {
-        msg.remove();
-      }, 1000);
-    }
-
-
     const karsin = document.createElement('button');
     karsin.className = 'karsin';
     karsin.addEventListener("click", (e) => {
       e.stopPropagation();
+      const cartProducts = getCartProducts();
+      const itemData = createProductData(item);
+      const exists = cartProducts.some(el => el.id === item.id);
 
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-      const itemData = {
-        id: item.id,
-        title: item.title,
-        media: item.media,
-        price: item.price
-      };
-      const exists = cart.some(el => el.id === item.id);
       if (!exists) {
-        cart.push(itemData);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        showMessage('Товар добавлен в корзину');
+        cartProducts.push(itemData);
+        saveCartProducts(cartProducts);
+        showMessage("Товар добавлен в корзину");
       } else {
-        showMessage('Этот товар уже в корзине');
+        showMessage("Этот товар уже в корзине");
       }
-
     });
 
-
-
-
-
-
     const img2 = document.createElement('img');
-    img2.src = '/public/Group 237756.png';
+    img2.src = '/Group 237756.png';
 
     // Сборка DOM
     img_box.appendChild(img_pr);

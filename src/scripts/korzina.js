@@ -1,13 +1,15 @@
 import axios from "axios";
+import {
+  getCartProducts,
+  updateCartStorage,
+  removeFromCart
+} from "./storage.js";
+
 
 axios.get('http://localhost:7777/goods')
   .then((res) => {
     const allGoods = res.data;
-
-    // Получаем ID товаров из корзины (localStorage)
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-
-    // Сопоставляем товары из корзины с данными с сервера
+    const cartItems = getCartProducts();
     const cartGoods = allGoods
       .filter(item => cartItems.some(ci => ci.id === item.id))
       .map(item => {
@@ -173,21 +175,6 @@ function cretkorzina(goods) {
 }
 
 
-function updateCartStorage(id, count) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const idx = cart.findIndex(el => el.id === id);
-  if (idx !== -1) {
-    cart[idx].quantity = count;
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
-}
-
-function removeFromCart(id) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  cart = cart.filter(el => el.id !== id);
-  localStorage.setItem('cart', JSON.stringify(cart));
-}
-
 
 const overlay_md = document.createElement("div")
 overlay_md.className = "overlay_md"
@@ -202,8 +189,8 @@ modal_ofr.classList.add("modal_ofr")
  modal_ofr_content.classList.add("modal_ofr-content")
 
  const h1 = document.createElement("h1")
- h1.textContent = "Заказ офорлен"
- h1.classList.add = ("h1_1")
+ h1.textContent = "Заказ оформлен"
+ h1.classList.add("h1_1")
 
  const button_b = document.createElement("button")
  button_b.textContent = "Продолжать покупку"

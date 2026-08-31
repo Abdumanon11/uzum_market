@@ -1,4 +1,11 @@
 import axios from "axios";
+import {
+  getLikedProducts,
+  saveLikedProducts,
+  getCartProducts,
+  saveCartProducts
+} from "./storage.js";
+import { showMessage } from "./showMessage.js";
 
 const id = sessionStorage.getItem('currentProductId');
 
@@ -97,20 +104,13 @@ function createProduct(item) {
   const btn_box = document.createElement('div');
   btn_box.className = 'btn__box';
 
-  function showMessage(text) {
-    const msg = document.createElement('div');
-    msg.className = 'notification';
-    msg.textContent = text;
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 1000);
-  }
 
   const kar = document.createElement('button');
   kar.className = 'kar';
   kar.textContent = 'Добавить в корзину';
 
   kar.addEventListener("click", () => {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = getCartProducts()
     const itemData = {
       id: item.id,
       title: item.title,
@@ -121,7 +121,7 @@ function createProduct(item) {
     const exists = cart.some(el => el.id === item.id);
     if (!exists) {
       cart.push(itemData);
-      localStorage.setItem('cart', JSON.stringify(cart));
+      saveCartProducts(cart);
       showMessage('Товар добавлен в корзину');
     } else {
       showMessage('Этот товар уже в корзине');
@@ -133,7 +133,7 @@ function createProduct(item) {
   lik.textContent = 'Добавить в избранное';
 
   lik.addEventListener("click", () => {
-    const liked = JSON.parse(localStorage.getItem('liked')) || [];
+    const liked = getLikedProducts();
     const itemData = {
       id: item.id,
       title: item.title,
@@ -143,7 +143,7 @@ function createProduct(item) {
     const exists = liked.some(el => el.id === item.id);
     if (!exists) {
       liked.push(itemData);
-      localStorage.setItem('liked', JSON.stringify(liked));
+      saveLikedProducts(liked);
       showMessage('Добавлено в избранное');
     } else {
       showMessage('Уже в избранном');

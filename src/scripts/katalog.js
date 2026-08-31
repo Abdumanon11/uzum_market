@@ -1,5 +1,11 @@
 import axios from "axios";
-
+import {
+  getLikedProducts,
+  saveLikedProducts,
+  getCartProducts,
+  saveCartProducts
+} from "./storage.js";
+import { showMessage } from "./showMessage.js";
 const productsContainer = document.getElementById("produsts");
 
 // Получаем параметры из URL
@@ -42,14 +48,14 @@ function renderProducts(goods) {
     favorite_btn.className = 'favorite-btn';
 
     const icon = document.createElement('img');
-    const liked = JSON.parse(localStorage.getItem('liked')) || [];
+    const liked = getLikedProducts();
     const isLiked = liked.some(el => el.id === item.id);
     icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
     favorite_btn.appendChild(icon);
 
     favorite_btn.addEventListener("click", (e) => {
       e.stopPropagation();
-      let liked = JSON.parse(localStorage.getItem('liked')) || [];
+      let liked = getLikedProducts();
 
       const itemData = {
         id: item.id,
@@ -62,12 +68,12 @@ function renderProducts(goods) {
 
       if (!exists) {
         liked.push(itemData);
-        localStorage.setItem('liked', JSON.stringify(liked));
+        saveLikedProducts(liked);
         icon.src = '/public/Vector2.png';
         showMessage('Добавлено в избранное');
       } else {
         liked = liked.filter(el => el.id !== item.id);
-        localStorage.setItem('liked', JSON.stringify(liked));
+        saveLikedProducts(liked);
         icon.src = '/public/Vector.png';
         showMessage('Удалено из избранного');
       }
@@ -96,7 +102,7 @@ function renderProducts(goods) {
 
     karsin.addEventListener("click", (e) => {
       e.stopPropagation();
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cart = getCartProducts();
 
       const itemData = {
         id: item.id,
@@ -108,7 +114,7 @@ function renderProducts(goods) {
       const exists = cart.some(el => el.id === item.id);
       if (!exists) {
         cart.push(itemData);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        saveCartProducts(cart);
         showMessage('Товар добавлен в корзину');
       } else {
         showMessage('Этот товар уже в корзине');
@@ -143,14 +149,3 @@ function renderProducts(goods) {
   }
 }
 
-function showMessage(text) {
-  const msg = document.createElement('div');
-  msg.className = 'notification';
-  msg.textContent = text;
-
-  document.body.appendChild(msg);
-
-  setTimeout(() => {
-    msg.remove();
-  }, 1000);
-}

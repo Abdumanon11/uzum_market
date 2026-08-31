@@ -1,8 +1,17 @@
+import {
+  getLikedProducts,
+  saveLikedProducts,
+  getCartProducts,
+  saveCartProducts
+} from "./storage.js";
+
+import { showMessage } from "./showMessage.js";
+
 const productsContainer = document.getElementById("produsts");
 const likeBox = document.getElementById("like-box");
 
 function renderLiked() {
-  const likedItems = JSON.parse(localStorage.getItem('liked')) || [];
+  const likedItems = getLikedProducts();
 
   productsContainer.innerHTML = '';
   if (likedItems.length === 0) {
@@ -33,7 +42,7 @@ function createProductCard(goods) {
     favorite_btn.className = 'favorite-btn';
 
     const icon = document.createElement('img');
-    const liked = JSON.parse(localStorage.getItem('liked')) || [];
+    const liked = getLikedProducts();
     const isLiked = liked.some(el => el.id === item.id);
     icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
 
@@ -42,29 +51,29 @@ function createProductCard(goods) {
     favorite_btn.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      let liked = JSON.parse(localStorage.getItem('liked')) || [];
-
-      const itemData = {
-        id: item.id,
-        title: item.title,
-        media: item.media,
-        price: item.price
-      };
+      let liked = getLikedProducts();
 
       const exists = liked.some(el => el.id === item.id);
 
       if (!exists) {
-        liked.push(itemData);
-        localStorage.setItem('liked', JSON.stringify(liked));
+        liked.push({
+          id: item.id,
+          title: item.title,
+          media: item.media,
+          price: item.price
+        });
+
+        saveLikedProducts(liked);
         icon.src = '/public/Vector2.png';
+        showMessage('Добавлено в избранное');
       } else {
         liked = liked.filter(el => el.id !== item.id);
-        localStorage.setItem('liked', JSON.stringify(liked));
-        icon.src = '/public/Vector.png';
 
-        if (window.location.pathname === "/like") {
-          renderLiked();
-        }
+        saveLikedProducts(liked);
+        icon.src = '/public/Vector.png';
+        showMessage('Удалено из избранного');
+
+        renderLiked();
       }
     });
 
@@ -72,12 +81,12 @@ function createProductCard(goods) {
     imgBox.append(img, favorite_btn);
 
 
-        const karsin = document.createElement('button');
+    const karsin = document.createElement('button');
     karsin.className = 'karsin';
     karsin.addEventListener("click", (e) => {
       e.stopPropagation();
 
-      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const cart = getCartProducts();
 
       const itemData = {
         id: item.id,
@@ -88,7 +97,7 @@ function createProductCard(goods) {
       const exists = cart.some(el => el.id === item.id);
       if (!exists) {
         cart.push(itemData);
-        localStorage.setItem('cart', JSON.stringify(cart));
+        saveCartProducts(cart);
         showMessage('Товар добавлен в корзину');
       } else {
         showMessage('Этот товар уже в корзине');
@@ -122,8 +131,8 @@ function createProductCard(goods) {
 
     karsin.appendChild(img2)
     text.append(title);
-    box_text.append( price , karsin)
-    product.append(imgBox, text,box_text);
+    box_text.append(price, karsin)
+    product.append(imgBox, text, box_text);
 
 
     product.addEventListener('click', () => {
