@@ -118,8 +118,3 @@
       filter:blur(8px);
     }
 
-    @media(max-width:600px){
-      h1{font-size:80px;}
-      h2{font-size:22px;}
-      .wrapper{padding:40px 20px;}
-    }

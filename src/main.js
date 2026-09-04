@@ -1,3 +1,4 @@
+ import './styles/style.css' 
 import axios from "axios";
 const pages = [
 

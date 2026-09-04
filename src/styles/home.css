@@ -1,113 +1,420 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+/* =================================
+   1. SLIDER
+================================= */
+
+.slider {
+    width: min(100% - 40px, 1280px);
+    margin: 0 auto 40px;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: var(--radius-lg);
+}
+
+.list {
+    display: flex;
+    width: 100%;
+
+    transition: transform 0.3s ease;
+}
+
+.item {
+    min-width: 100%;
+}
+
+.item img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: var(--radius-lg);
 }
 
 
+/* =================================
+   2. SLIDER BUTTONS
+================================= */
+
+.buttons {
+    position: absolute;
+
+    top: 50%;
+    left: 0;
+    right: 0;
+
+    transform: translateY(-50%);
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 0 15px;
+
+    pointer-events: none;
+}
+
+.buttons button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--color-text);
+
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.buttons button:hover {
+    background: var(--color-white);
+    transform: scale(1.05);
+}
+
+
+/* =================================
+   3. SLIDER DOTS
+================================= */
+
+.dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 15px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.dots li {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.6);
+
+    cursor: pointer;
+
+    transition:
+        width 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.dots li.active {
+    width: 20px;
+
+    border-radius: 10px;
+
+    background: var(--color-white);
+}
+
+
+/* =================================
+   4. КОНТЕЙНЕР ТОВАРОВ
+================================= */
+
 .conteinet {
     width: 100%;
-    height: 100%;
+
     display: flex;
     justify-content: center;
 }
 
 .const_pr {
-    max-width: 1700px;
-    height: 100%;
+    width: min(100% - 40px, 1280px);
 }
 
-.skd {
-    color: #999;
-    text-decoration: line-through;
-    font-size: 14px;
-    margin-top: 4px;
-}
 
+/* =================================
+   5. СЕТКА ТОВАРОВ
+================================= */
 
 .produsts {
     width: 100%;
-    height: 100%;
+
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
     gap: 30px;
 }
 
-.product {
-    width: 230px;
-    height: 410px;
-    border-width: 1px;
 
+/* =================================
+   6. КАРТОЧКА ТОВАРА
+================================= */
+
+.product {
+    width: 100%;
+    min-width: 0;
+
+    height: 410px;
+
+    cursor: pointer;
 }
+
+
+/* =================================
+   7. ИЗОБРАЖЕНИЕ ТОВАРА
+================================= */
 
 .img_box {
-    max-width: 230px;
     position: relative;
+
+    width: 100%;
     height: 300px;
-    border-radius: 12px;
 
+    overflow: hidden;
 
+    border-radius: var(--radius-md);
+
+    background: #f3f4f6;
 }
-
-.tide {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-
 
 .img_pr {
+    display: block;
+
     width: 100%;
     height: 100%;
-    border-radius: 12px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+    object-fit: cover;
+
+    border-radius: var(--radius-md);
+
+    transition: transform 0.25s ease;
 }
 
-.k_t {
-    display: flex;
-
-    h4 {
-        padding-top: 5px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-    }
+.product:hover .img_pr {
+    transform: scale(1.02);
 }
 
-.karsin {
-    background-color: white;
-    border: 0;
-    padding-left: 45%;
 
-}
+/* =================================
+   8. ИЗБРАННОЕ
+================================= */
 
 .favorite-btn {
     position: absolute;
+
     top: 12px;
     right: 12px;
-    background: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
+
+    width: 34px;
+    height: 34px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--color-white);
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.btn_box{
+.favorite-btn:hover {
+    transform: scale(1.08);
+
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.favorite-btn img {
+    width: 18px;
+    height: 18px;
+
+    object-fit: contain;
+}
+
+
+/* =================================
+   9. ТЕКСТ ТОВАРА
+================================= */
+
+.text {
+    padding-top: 10px;
+}
+
+.tide {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-family:
+        'Trebuchet MS',
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    overflow: hidden;
+}
+
+
+/* =================================
+   10. СТАРАЯ ЦЕНА
+================================= */
+
+.skd {
+    margin: 4px 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: 14px;
+
+    text-decoration: line-through;
+}
+
+
+/* =================================
+   11. НОВАЯ ЦЕНА + КОРЗИНА
+================================= */
+
+.k_t {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 2px;
+}
+
+.k_t h4 {
+    margin: 0;
+
+    color: var(--color-text);
+
+    font-family:
+        'Trebuchet MS',
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.karsin {
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: var(--radius-sm);
+
+    background: var(--color-white);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.karsin:hover {
+    background: #f3f4f6;
+
+    transform: scale(1.05);
+}
+
+.karsin img {
+    width: 22px;
+    height: 22px;
+
+    object-fit: contain;
+}
+
+
+/* =================================
+   12. КНОПКА "ПОКАЗАТЬ ЕЩЁ"
+================================= */
+
+.btn_box {
     width: 100%;
+
     display: flex;
     justify-content: center;
+
+    margin-top: 30px;
 }
 
 .btn_20 {
-    width: 126px;
-    height: 32px;
-    opacity: 1;
-    border-radius: 4px;
+    min-width: 150px;
+    height: 40px;
+
+    padding: 0 18px;
+
     border: none;
-    color: #3333CC;
+    border-radius: var(--radius-sm);
 
+    background: #7000FF;
+    color: var(--color-primary);
 
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn_20:hover {
+    background: #5800CC;
+
+    transform: translateY(-1px);
+}
+
+.btn_20:active {
+    transform: translateY(0);
 }

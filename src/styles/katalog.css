@@ -1,113 +1,305 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
+/* =================================
+   1. КОНТЕЙНЕР КАТАЛОГА
+================================= */
 
 .conteinet {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: center;
+
+    padding: 0 20px;
 }
 
 .const_pr {
-    max-width: 1700px;
-    height: 100%;
+    width: 100%;
+    max-width: 1280px;
 }
 
-.skd {
-    color: #999;
-    text-decoration: line-through;
-    font-size: 14px;
-    margin-top: 4px;
-}
 
+/* =================================
+   2. СЕТКА ТОВАРОВ
+================================= */
 
 .produsts {
     width: 100%;
-    height: 100%;
+
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
     gap: 30px;
 }
 
-.product {
-    width: 230px;
-    height: 410px;
-    border-width: 1px;
 
+/* =================================
+   3. КАРТОЧКА ТОВАРА
+================================= */
+
+.product {
+    width: 100%;
+    min-width: 0;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
 }
+
+.product:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =================================
+   4. БЛОК ИЗОБРАЖЕНИЯ
+================================= */
 
 .img_box {
-    max-width: 230px;
-    position: relative;
+    width: 100%;
     height: 300px;
-    border-radius: 12px;
 
+    position: relative;
 
+    overflow: hidden;
+
+    border-radius: var(--radius-md);
+
+    background: #f0f0f0;
 }
-
-.tide {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
-}
-
 
 .img_pr {
     width: 100%;
     height: 100%;
-    border-radius: 12px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: var(--radius-md);
 }
+
+
+/* =================================
+   5. НАЗВАНИЕ ТОВАРА
+================================= */
+
+.tide {
+    margin: 10px 0 0;
+
+    color: var(--color-text);
+
+    font-family:
+        'Trebuchet MS',
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        Arial,
+        sans-serif;
+
+    font-size: 15px;
+    line-height: 1.4;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =================================
+   6. СТАРАЯ ЦЕНА
+================================= */
+
+.skd {
+    margin: 4px 0 0;
+
+    color: var(--color-text-secondary);
+
+    font-size: 14px;
+
+    text-decoration: line-through;
+}
+
+
+/* =================================
+   7. НОВАЯ ЦЕНА + КОРЗИНА
+================================= */
 
 .k_t {
-    display: flex;
+    width: 100%;
 
-    h4 {
-        padding-top: 5px;
-        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
-    }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 2px;
 }
+
+.k_t h4 {
+    margin: 0;
+    padding: 0;
+
+    color: var(--color-text);
+
+    font-family:
+        'Trebuchet MS',
+        'Lucida Sans Unicode',
+        'Lucida Grande',
+        Arial,
+        sans-serif;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* =================================
+   8. КНОПКА КОРЗИНЫ
+================================= */
 
 .karsin {
-    background-color: white;
-    border: 0;
-    padding-left: 45%;
+    width: 36px;
+    height: 36px;
 
-}
-
-.favorite-btn {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--color-white);
+
     cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.btn_box{
+.karsin:hover {
+    background: #f1f1f1;
+
+    transform: scale(1.05);
+}
+
+.karsin:active {
+    transform: scale(0.95);
+}
+
+.karsin img {
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+}
+
+
+/* =================================
+   9. ИЗБРАННОЕ
+================================= */
+
+.favorite-btn {
+    position: absolute;
+
+    top: 12px;
+    right: 12px;
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--color-white);
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+
+    cursor: pointer;
+
+    z-index: 2;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.favorite-btn:hover {
+    transform: scale(1.08);
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+.favorite-btn:active {
+    transform: scale(0.95);
+}
+
+.favorite-btn img {
+    width: 20px;
+    height: 20px;
+
+    object-fit: contain;
+}
+
+
+/* =================================
+   10. ОБЩИЙ ТЕКСТОВЫЙ БЛОК
+================================= */
+
+.text {
     width: 100%;
+}
+
+
+/* =================================
+   11. СОВМЕСТИМОСТЬ С КНОПКОЙ
+================================= */
+
+.btn_box {
+    width: 100%;
+
     display: flex;
     justify-content: center;
+
+    margin-top: 30px;
 }
 
 .btn_20 {
-    width: 126px;
-    height: 32px;
-    opacity: 1;
-    border-radius: 4px;
-    border: none;
-    color: #3333CC;
+    width: 140px;
+    height: 40px;
 
+    padding: 0 15px;
 
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+
+    background: var(--color-white);
+    color: var(--color-primary);
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.btn_20:hover {
+    background: #e9f9ef;
+    border-color: var(--color-primary);
+
+    transform: translateY(-1px);
+}
+
+.btn_20:active {
+    transform: translateY(0);
 }
