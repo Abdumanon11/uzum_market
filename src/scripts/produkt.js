@@ -31,16 +31,15 @@ function createProduct(item) {
   const box_img = document.createElement('div');
   box_img.className = 'box_img';
 
-  for (let i = 0; i < 5; i++) {
+item.media.forEach((image) => {
     const img = document.createElement('img');
     img.className = 'm_img';
-    img.src = item.media;
+    img.src = image;
     box_img.appendChild(img);
-  }
-
+});
   const img_gl = document.createElement('img');
   img_gl.className = 'img_gl';
-  img_gl.src = item.media;
+  img_gl.src = item.media[0];
 
   const text_box = document.createElement('div');
   text_box.className = 'text_box';

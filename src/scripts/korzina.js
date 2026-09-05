@@ -100,7 +100,7 @@ function cretkorzina(goods) {
     tovar_img.classList.add('tovar_img');
 
     const img = document.createElement('img');
-    img.src = item.media;
+    img.src = item.media[0];
 
     const tovar_info = document.createElement('div');
     tovar_info.classList.add('tovar_info');
