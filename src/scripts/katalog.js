@@ -41,7 +41,7 @@ function renderProducts(goods) {
     img_box.className = 'img_box';
 
     const img_pr = document.createElement('img');
-    img_pr.src = item.media;
+    img_pr.src = item.media[0];
     img_pr.className = 'img_pr';
 
     const favorite_btn = document.createElement('button');

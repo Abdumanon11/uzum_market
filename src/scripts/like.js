@@ -36,7 +36,7 @@ function createProductCard(goods) {
     imgBox.className = 'img_box';
 
     const img = document.createElement('img');
-    img.src = item.media;
+    img.src = item.media[0];
     img.className = 'img_pr';
     const favorite_btn = document.createElement('button');
     favorite_btn.className = 'favorite-btn';

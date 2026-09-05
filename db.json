@@ -13,7 +13,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50138276bb.jpg"
+        "/products/1.svg"
       ],
       "type": "furniture"
     },
@@ -29,7 +29,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50110498bb.jpg"
+        "/products/2.svg"
       ],
       "type": "furniture"
     },
@@ -45,7 +45,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50110498bb.jpg"
+        "/products/3.svg"
       ],
       "type": "furniture"
     },
@@ -62,7 +62,7 @@
       "isBlackFriday": true,
       "salePercentage": 20,
       "media": [
-        "https://img.mvideo.ru/Big/50143597bb.jpg"
+        "/products/4.svg"
       ],
       "type": "furniture"
     },
@@ -79,7 +79,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50143056bb1.jpg"
+        "/products/5.svg"
       ],
       "type": "furniture"
     },
@@ -96,7 +96,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Pdb/50046768b.jpg"
+        "/products/6.svg"
       ],
       "type": "furniture"
     },
@@ -112,7 +112,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50136546bb1.jpg"
+        "/products/7.svg"
       ],
       "type": "furniture"
     },
@@ -129,7 +129,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50136541bb1.jpg"
+        "/products/8.svg"
       ],
       "type": "furniture"
     },
@@ -146,7 +146,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/40072385bb1.jpg"
+        "/products/9.svg"
       ],
       "type": "furniture"
     },
@@ -162,7 +162,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50132144bb.jpg"
+        "/products/10.svg"
       ],
       "type": "furniture"
     },
@@ -178,9 +178,7 @@
       "isBlackFriday": false,
       "salePercentage": 46,
       "media": [
-        "https://img.mvideo.ru/Big/30058106bb.jpg",
-        "https://img.mvideo.ru/Big/30058106bb1.jpg",
-        "https://img.mvideo.ru/Big/30058106bb3.jpg"
+        "/products/11.svg"
       ],
       "type": "PC"
     },
@@ -196,9 +194,7 @@
       "isBlackFriday": true,
       "salePercentage": 10,
       "media": [
-        "https://img.mvideo.ru/Big/30065113bb.jpg",
-        "https://img.mvideo.ru/Big/30065113bb1.jpg",
-        "https://img.mvideo.ru/Big/30065113bb2.jpg"
+        "/products/12.svg"
       ],
       "type": "PC"
     },
@@ -214,7 +210,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/30062852bb.jpg"
+        "/products/13.svg"
       ],
       "type": "PC"
     },
@@ -230,9 +226,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/30065111bb.jpg",
-        "https://img.mvideo.ru/Big/30065111bb1.jpg",
-        "https://img.mvideo.ru/Big/30065111bb2.jpg"
+        "/products/14.svg"
       ],
       "type": "PC"
     },
@@ -248,9 +242,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/30058010bb.jpg",
-        "https://img.mvideo.ru/Big/30058010bb1.jpg",
-        "https://img.mvideo.ru/Big/30058010bb2.jpg"
+        "/products/15.svg"
       ],
       "type": "PC"
     },
@@ -266,9 +258,7 @@
       "isBlackFriday": true,
       "salePercentage": 12,
       "media": [
-        "https://img.mvideo.ru/Big/30057855bb.jpg",
-        "https://img.mvideo.ru/Big/30057855bb5.jpg",
-        "https://img.mvideo.ru/Big/30057855bb4.jpg"
+        "/products/16.svg"
       ],
       "type": "PC"
     },
@@ -284,9 +274,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/30043369bb.jpg",
-        "https://img.mvideo.ru/Big/30043369bb1.jpg",
-        "https://img.mvideo.ru/Big/30043369bb4.jpg"
+        "/products/17.svg"
       ],
       "type": "PC"
     },
@@ -302,9 +290,7 @@
       "isBlackFriday": true,
       "salePercentage": 15,
       "media": [
-        "https://img.mvideo.ru/Big/30063814bb.jpg",
-        "https://img.mvideo.ru/Big/30063814bb1.jpg",
-        "https://img.mvideo.ru/Big/30063814bb2.jpg"
+        "/products/18.svg"
       ],
       "type": "PC"
     },
@@ -320,9 +306,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/30026741bb.jpg",
-        "https://img.mvideo.ru/Big/30026741bb1.jpg",
-        "https://img.mvideo.ru/Big/30026741bb7.jpg"
+        "/products/19.svg"
       ],
       "type": "PC"
     },
@@ -338,8 +322,7 @@
       "isBlackFriday": true,
       "salePercentage": 8,
       "media": [
-        "https://img.mvideo.ru/Pdb/30064600b.jpg",
-        "https://img.mvideo.ru/Pdb/30064600b1.jpg"
+        "/products/20.svg"
       ],
       "type": "PC"
     },
@@ -355,7 +338,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/50159382bb.jpg"
+        "/products/21.svg"
       ],
       "type": "audio"
     },
@@ -372,8 +355,7 @@
       "isBlackFriday": false,
       "salePercentage": 50,
       "media": [
-        "https://img.mvideo.ru/Big/50152746bb.jpg",
-        "https://img.mvideo.ru/Big/50152745bb.jpg"
+        "/products/22.svg"
       ],
       "type": "audio"
     },
@@ -389,8 +371,7 @@
       "isBlackFriday": false,
       "salePercentage": 30,
       "media": [
-        "https://img.mvideo.ru/Big/10019053bb.jpg",
-        "https://img.mvideo.ru/Big/10019053bb1.jpg"
+        "/products/23.svg"
       ],
       "type": "audio"
     },
@@ -406,8 +387,7 @@
       "isBlackFriday": false,
       "salePercentage": 37,
       "media": [
-        "https://img.mvideo.ru/Big/10028518bb.jpg",
-        "https://img.mvideo.ru/Big/10028518bb1.jpg"
+        "/products/24.svg"
       ],
       "type": "audio"
     },
@@ -423,8 +403,7 @@
       "isBlackFriday": false,
       "salePercentage": 57,
       "media": [
-        "https://img.mvideo.ru/Pdb/10012693b.jpg",
-        "https://img.mvideo.ru/Pdb/10012693b1.jpg"
+        "/products/25.svg"
       ],
       "type": "audio"
     },
@@ -440,8 +419,7 @@
       "isBlackFriday": false,
       "salePercentage": 27,
       "media": [
-        "https://img.mvideo.ru/Big/10022400bb.jpg",
-        "https://img.mvideo.ru/Big/10022400bb2.jpg"
+        "/products/26.svg"
       ],
       "type": "audio"
     },
@@ -457,7 +435,7 @@
       "isBlackFriday": false,
       "salePercentage": 35,
       "media": [
-        "https://img.mvideo.ru/Big/10028676bb.jpg"
+        "/products/27.svg"
       ],
       "type": "audio"
     },
@@ -473,8 +451,7 @@
       "isBlackFriday": false,
       "salePercentage": 12,
       "media": [
-        "https://img.mvideo.ru/Big/10028852bb.jpg",
-        "https://img.mvideo.ru/Big/10028852bb3.jpg"
+        "/products/28.svg"
       ],
       "type": "audio"
     },
@@ -491,8 +468,7 @@
       "isBlackFriday": false,
       "salePercentage": 69,
       "media": [
-        "https://img.mvideo.ru/Pdb/50052461b.jpg",
-        "https://img.mvideo.ru/Pdb/50052460b.jpg"
+        "/products/29.svg"
       ],
       "type": "audio"
     },
@@ -509,8 +485,7 @@
       "isBlackFriday": false,
       "salePercentage": 28,
       "media": [
-        "https://img.mvideo.ru/Big/50131395bb.jpg",
-        "https://img.mvideo.ru/Big/50173058bb.jpg"
+        "/products/30.svg"
       ],
       "type": "audio"
     },
@@ -531,9 +506,7 @@
       "isBlackFriday": true,
       "salePercentage": 26,
       "media": [
-        "https://img.mvideo.ru/Big/10030407bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10030407bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10030407bb3.jpg"
+        "/products/0.011139933448344408.svg"
       ],
       "type": "TV"
     },
@@ -557,9 +530,7 @@
       "isBlackFriday": false,
       "salePercentage": 15,
       "media": [
-        "https://img.mvideo.ru/Big/10025791bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10025791bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10025791bb2.jpg"
+        "/products/0.14070230267720274.svg"
       ],
       "type": "TV"
     },
@@ -583,9 +554,7 @@
       "isBlackFriday": true,
       "salePercentage": 48,
       "media": [
-        "https://img.mvideo.ru/Big/10030411bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10030411bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10030411bb2.jpg"
+        "/products/0.58006116125388.svg"
       ],
       "type": "TV"
     },
@@ -608,9 +577,7 @@
       "isBlackFriday": false,
       "salePercentage": 50,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10030234bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10030234bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10030234bb2.jpg"
+        "/products/0.8474365959595023.svg"
       ],
       "type": "TV"
     },
@@ -633,9 +600,7 @@
       "isBlackFriday": false,
       "salePercentage": 15,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10026500bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10026500bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10026500bb2.jpg"
+        "/products/0.8934953995981414.svg"
       ],
       "type": "TV"
     },
@@ -655,9 +620,7 @@
       "isBlackFriday": true,
       "salePercentage": 45,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10030424bb.jpg",
-        "https://img.mvideo.ru/Pdb/small_pic/65/10030424b1.jpg",
-        "https://img.mvideo.ru/Pdb/small_pic/65/10030424b2.jpg"
+        "/products/0.1452291405255206.svg"
       ],
       "type": "TV"
     },
@@ -678,9 +641,7 @@
       "isBlackFriday": true,
       "salePercentage": 32,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10031232bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10031232bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10031232bb2.jpg"
+        "/products/0.30766659663183327.svg"
       ],
       "type": "TV"
     },
@@ -699,9 +660,7 @@
       "isBlackFriday": false,
       "salePercentage": 45,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10031758bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10031758bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10031758bb2.jpg"
+        "/products/0.8031328499576555.svg"
       ],
       "type": "TV"
     },
@@ -721,9 +680,7 @@
       "isBlackFriday": true,
       "salePercentage": 15,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10031348bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10031348bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10031348bb2.jpg"
+        "/products/0.060016578071321325.svg"
       ],
       "type": "TV"
     },
@@ -745,9 +702,7 @@
       "isBlackFriday": true,
       "salePercentage": 10,
       "media": [
-        "https://img.mvideo.ru/Big/small_pic/65/10029729bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10029729bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/65/10029729bb2.jpg"
+        "/products/0.8673838511087768.svg"
       ],
       "type": "TV"
     },
@@ -761,13 +716,7 @@
       "isBlackFriday": true,
       "salePercentage": 27,
       "media": [
-        "https://img.mvideo.ru/Big/20080442bb.jpg",
-        "https://img.mvideo.ru/Big/20080442bb1.jpg",
-        "https://img.mvideo.ru/Big/20080442bb2.jpg",
-        "https://img.mvideo.ru/Big/20080442bb3.jpg",
-        "https://img.mvideo.ru/Big/20080442bb4.jpg",
-        "https://img.mvideo.ru/Big/20080442bb5.jpg",
-        "https://www.mvideo.ru/products/holodilnik-gorenje-nrk6191ps4-20080442"
+        "/products/31.svg"
       ],
       "type": "kitchen"
     },
@@ -784,10 +733,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/20064638bb.jpg",
-        "https://img.mvideo.ru/Big/20064638bb1.jpg",
-        "https://img.mvideo.ru/Big/20064638bb2.jpg",
-        "https://img.mvideo.ru/Big/20064638bb3.jpg"
+        "/products/32.svg"
       ],
       "type": "kitchen"
     },
@@ -801,10 +747,7 @@
       "isBlackFriday": true,
       "salePercentage": 50,
       "media": [
-        "https://img.mvideo.ru/Pdb/20040702b.jpg",
-        "https://img.mvideo.ru/Pdb/20040702b1.jpg",
-        "https://img.mvideo.ru/Pdb/20040702b2.jpg",
-        "https://img.mvideo.ru/Pdb/20040702b3.jpg"
+        "/products/33.svg"
       ],
       "type": "kitchen"
     },
@@ -818,10 +761,7 @@
       "isBlackFriday": true,
       "salePercentage": 39,
       "media": [
-        "https://img.mvideo.ru/Big/20066196bb.jpg",
-        "https://img.mvideo.ru/Big/20066196bb1.jpg",
-        "https://img.mvideo.ru/Big/20066196bb2.jpg",
-        "https://img.mvideo.ru/Big/20066196bb3.jpg"
+        "/products/34.svg"
       ],
       "type": "kitchen"
     },
@@ -838,11 +778,7 @@
       "isBlackFriday": true,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/20044905bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/80/20044905bb1.jpg",
-        "https://img.mvideo.ru/Big/20044905bb2.jpg",
-        "https://img.mvideo.ru/Big/small_pic/80/20044905bb3.jpg",
-        "https://img.mvideo.ru/Big/20044905bb3.jpg"
+        "/products/35.svg"
       ],
       "type": "kitchen"
     },
@@ -859,11 +795,7 @@
       "isBlackFriday": true,
       "salePercentage": 28,
       "media": [
-        "https://img.mvideo.ru/Big/20071642bb.jpg",
-        "https://img.mvideo.ru/Big/small_pic/80/20071642bb1.jpg",
-        "https://img.mvideo.ru/Big/small_pic/80/20071642bb2.jpg",
-        "https://img.mvideo.ru/Big/20071642bb3.jpg",
-        "https://img.mvideo.ru/Big/20071642bb4.jpg"
+        "/products/36.svg"
       ],
       "type": "kitchen"
     },
@@ -877,10 +809,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/20078660bb.jpg",
-        "https://img.mvideo.ru/Big/20078660bb1.jpg",
-        "https://img.mvideo.ru/Big/20078660bb2.jpg",
-        "https://img.mvideo.ru/Big/20078660bb3.jpg"
+        "/products/37.svg"
       ],
       "type": "kitchen"
     },
@@ -894,10 +823,7 @@
       "isBlackFriday": true,
       "salePercentage": 37,
       "media": [
-        "https://img.mvideo.ru/Big/400032920bb.jpg",
-        "https://img.mvideo.ru/Big/400032920bb1.jpg",
-        "https://img.mvideo.ru/Pdb/400032920b2.jpg",
-        "https://img.mvideo.ru/Pdb/400032920b3.jpg"
+        "/products/38.svg"
       ],
       "type": "kitchen"
     },
@@ -911,11 +837,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "https://img.mvideo.ru/Big/20056837bb.jpg",
-        "https://img.mvideo.ru/Big/20056837bb1.jpg",
-        "https://img.mvideo.ru/Pdb/20056837b2.jpg",
-        "https://img.mvideo.ru/Pdb/20056837b3.jpg",
-        "https://img.mvideo.ru/Pdb/20056837b4.jpg"
+        "/products/39.svg"
       ],
       "type": "kitchen"
     },
@@ -929,16 +851,7 @@
       "isBlackFriday": false,
       "salePercentage": 12,
       "media": [
-        "https://img.mvideo.ru/Big/20063431bb.jpg",
-        "https://img.mvideo.ru/Big/20063431bb1.jpg",
-        "https://img.mvideo.ru/Big/20063431bb2.jpg",
-        "https://img.mvideo.ru/Big/20063431bb3.jpg",
-        "https://img.mvideo.ru/Big/20063431bb4.jpg",
-        "https://img.mvideo.ru/Big/20063431bb6.jpg",
-        "https://img.mvideo.ru/Big/20063431bb7.jpg",
-        "https://img.mvideo.ru/Big/20063431bb9.jpg",
-        "https://img.mvideo.ru/Big/20063431bb10.jpg",
-        "https://img.mvideo.ru/Big/20063431bb12.jpg"
+        "/products/40.svg"
       ],
       "type": "kitchen"
     }

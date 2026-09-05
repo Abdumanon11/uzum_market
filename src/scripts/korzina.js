@@ -84,7 +84,7 @@ function cretkorzina(goods) {
 
   function updateTotal() {
     p_pr.textContent = `${totalSum.toLocaleString("ru-RU")} сум`;
-    const countTovars = tovars.querySelectorAll('.tovar').length;
+    const countTovars = goods.reduce((total, item) => total + (item.quantity || 1), 0);
     itogo.textContent = `Итого товаров: ${countTovars}`;
   }
 
@@ -134,6 +134,11 @@ function cretkorzina(goods) {
       count++;
       p_num.textContent = count;
       sum.textContent = `Сумма: ${(price * count).toLocaleString("ru-RU")} сум`;
+      const currentItem = goods.find(product => product.id === item.id);
+      if (currentItem) {
+        currentItem.quantity = count;
+    }
+
       totalSum += price;
       updateTotal();
 
@@ -145,6 +150,11 @@ function cretkorzina(goods) {
         count--;
         p_num.textContent = count;
         sum.textContent = `Сумма: ${(price * count).toLocaleString("ru-RU")} сум`;
+        const currentItem = goods.find(product => product.id === item.id);
+        if (currentItem) {
+        currentItem.quantity = count;
+    }
+
         totalSum -= price;
         updateTotal();
 
@@ -155,6 +165,7 @@ function cretkorzina(goods) {
     del.addEventListener('click', () => {
       tovars.removeChild(tovar);
       totalSum -= price * count;
+      goods = goods.filter(product => product.id !== item.id);
       updateTotal();
       removeFromCart(item.id);
 

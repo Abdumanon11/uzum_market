@@ -397,7 +397,7 @@
     border-radius: var(--radius-sm);
 
     background: #7000FF;
-    color: var(--color-primary);
+    color: #ffffff;
 
     font-size: 14px;
     font-weight: 600;
@@ -410,8 +410,7 @@
 }
 
 .btn_20:hover {
-    background: #5800CC;
-
+   background: #5800CC;
     transform: translateY(-1px);
 }
 
