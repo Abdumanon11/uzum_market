@@ -13,7 +13,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/1.svg"
+        "/products/1.jpg"
       ],
       "type": "furniture"
     },
@@ -29,7 +29,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/2.svg"
+        "/products/2.jpg"
       ],
       "type": "furniture"
     },
@@ -45,7 +45,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/3.svg"
+        "/products/3.jpg"
       ],
       "type": "furniture"
     },
@@ -62,7 +62,7 @@
       "isBlackFriday": true,
       "salePercentage": 20,
       "media": [
-        "/products/4.svg"
+        "/products/4.jpg"
       ],
       "type": "furniture"
     },
@@ -79,7 +79,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/5.svg"
+        "/products/5.jpg"
       ],
       "type": "furniture"
     },
@@ -96,7 +96,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/6.svg"
+        "/products/6.jpg"
       ],
       "type": "furniture"
     },
@@ -112,7 +112,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/7.svg"
+        "/products/7.jpg"
       ],
       "type": "furniture"
     },
@@ -129,7 +129,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/8.svg"
+        "/products/8.jpg"
       ],
       "type": "furniture"
     },
@@ -146,7 +146,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/9.svg"
+        "/products/9.jpg"
       ],
       "type": "furniture"
     },
@@ -162,7 +162,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/10.svg"
+        "/products/10.jpg"
       ],
       "type": "furniture"
     },
@@ -178,7 +178,7 @@
       "isBlackFriday": false,
       "salePercentage": 46,
       "media": [
-        "/products/11.svg"
+        "/products/11.jpg"
       ],
       "type": "PC"
     },
@@ -194,7 +194,7 @@
       "isBlackFriday": true,
       "salePercentage": 10,
       "media": [
-        "/products/12.svg"
+        "/products/12.jpg"
       ],
       "type": "PC"
     },
@@ -210,7 +210,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/13.svg"
+        "/products/13.png"
       ],
       "type": "PC"
     },
@@ -226,7 +226,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/14.svg"
+        "/products/14.jpg"
       ],
       "type": "PC"
     },
@@ -242,7 +242,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/15.svg"
+        "/products/15.png"
       ],
       "type": "PC"
     },
@@ -258,7 +258,7 @@
       "isBlackFriday": true,
       "salePercentage": 12,
       "media": [
-        "/products/16.svg"
+        "/products/16.webp"
       ],
       "type": "PC"
     },
@@ -274,7 +274,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/17.svg"
+        "/products/17.jpg"
       ],
       "type": "PC"
     },
@@ -290,7 +290,7 @@
       "isBlackFriday": true,
       "salePercentage": 15,
       "media": [
-        "/products/18.svg"
+        "/products/18.jpg"
       ],
       "type": "PC"
     },
@@ -306,7 +306,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/19.svg"
+        "/products/19.jpg"
       ],
       "type": "PC"
     },
@@ -322,7 +322,7 @@
       "isBlackFriday": true,
       "salePercentage": 8,
       "media": [
-        "/products/20.svg"
+        "/products/20.jpg"
       ],
       "type": "PC"
     },
@@ -338,7 +338,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/21.svg"
+        "/products/21.jpg"
       ],
       "type": "audio"
     },
@@ -355,7 +355,7 @@
       "isBlackFriday": false,
       "salePercentage": 50,
       "media": [
-        "/products/22.svg"
+        "/products/22.jpg"
       ],
       "type": "audio"
     },
@@ -371,7 +371,7 @@
       "isBlackFriday": false,
       "salePercentage": 30,
       "media": [
-        "/products/23.svg"
+        "/products/23.jpg"
       ],
       "type": "audio"
     },
@@ -387,7 +387,7 @@
       "isBlackFriday": false,
       "salePercentage": 37,
       "media": [
-        "/products/24.svg"
+        "/products/24.jpg"
       ],
       "type": "audio"
     },
@@ -403,7 +403,7 @@
       "isBlackFriday": false,
       "salePercentage": 57,
       "media": [
-        "/products/25.svg"
+        "/products/25.jpg"
       ],
       "type": "audio"
     },
@@ -419,7 +419,7 @@
       "isBlackFriday": false,
       "salePercentage": 27,
       "media": [
-        "/products/26.svg"
+        "/products/26.jpg"
       ],
       "type": "audio"
     },
@@ -435,7 +435,7 @@
       "isBlackFriday": false,
       "salePercentage": 35,
       "media": [
-        "/products/27.svg"
+        "/products/27.jpg"
       ],
       "type": "audio"
     },
@@ -451,7 +451,7 @@
       "isBlackFriday": false,
       "salePercentage": 12,
       "media": [
-        "/products/28.svg"
+        "/products/28.jpg"
       ],
       "type": "audio"
     },
@@ -468,7 +468,7 @@
       "isBlackFriday": false,
       "salePercentage": 69,
       "media": [
-        "/products/29.svg"
+        "/products/29.jpg"
       ],
       "type": "audio"
     },
@@ -485,7 +485,7 @@
       "isBlackFriday": false,
       "salePercentage": 28,
       "media": [
-        "/products/30.svg"
+        "/products/30.jpg"
       ],
       "type": "audio"
     },
@@ -506,7 +506,7 @@
       "isBlackFriday": true,
       "salePercentage": 26,
       "media": [
-        "/products/0.011139933448344408.svg"
+        "/products/31.webp"
       ],
       "type": "TV"
     },
@@ -530,7 +530,7 @@
       "isBlackFriday": false,
       "salePercentage": 15,
       "media": [
-        "/products/0.14070230267720274.svg"
+        "/products/32.webp"
       ],
       "type": "TV"
     },
@@ -554,7 +554,7 @@
       "isBlackFriday": true,
       "salePercentage": 48,
       "media": [
-        "/products/0.58006116125388.svg"
+        "/products/33.webp"
       ],
       "type": "TV"
     },
@@ -577,7 +577,7 @@
       "isBlackFriday": false,
       "salePercentage": 50,
       "media": [
-        "/products/0.8474365959595023.svg"
+        "/products/34.webp"
       ],
       "type": "TV"
     },
@@ -600,7 +600,7 @@
       "isBlackFriday": false,
       "salePercentage": 15,
       "media": [
-        "/products/0.8934953995981414.svg"
+        "/products/35.webp"
       ],
       "type": "TV"
     },
@@ -620,7 +620,7 @@
       "isBlackFriday": true,
       "salePercentage": 45,
       "media": [
-        "/products/0.1452291405255206.svg"
+        "/products/36.jpg"
       ],
       "type": "TV"
     },
@@ -641,7 +641,7 @@
       "isBlackFriday": true,
       "salePercentage": 32,
       "media": [
-        "/products/0.30766659663183327.svg"
+        "/products/37.png"
       ],
       "type": "TV"
     },
@@ -660,7 +660,7 @@
       "isBlackFriday": false,
       "salePercentage": 45,
       "media": [
-        "/products/0.8031328499576555.svg"
+        "/products/38.webp"
       ],
       "type": "TV"
     },
@@ -680,7 +680,7 @@
       "isBlackFriday": true,
       "salePercentage": 15,
       "media": [
-        "/products/0.060016578071321325.svg"
+        "/products/39.jpg"
       ],
       "type": "TV"
     },
@@ -702,7 +702,7 @@
       "isBlackFriday": true,
       "salePercentage": 10,
       "media": [
-        "/products/0.8673838511087768.svg"
+        "/products/40.jpg"
       ],
       "type": "TV"
     },
@@ -716,7 +716,7 @@
       "isBlackFriday": true,
       "salePercentage": 27,
       "media": [
-        "/products/31.svg"
+        "/products/41.jpg"
       ],
       "type": "kitchen"
     },
@@ -733,7 +733,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/32.svg"
+        "/products/42.jpg"
       ],
       "type": "kitchen"
     },
@@ -747,7 +747,7 @@
       "isBlackFriday": true,
       "salePercentage": 50,
       "media": [
-        "/products/33.svg"
+        "/products/43.jpg"
       ],
       "type": "kitchen"
     },
@@ -761,7 +761,7 @@
       "isBlackFriday": true,
       "salePercentage": 39,
       "media": [
-        "/products/34.svg"
+        "/products/44.jpg"
       ],
       "type": "kitchen"
     },
@@ -778,7 +778,7 @@
       "isBlackFriday": true,
       "salePercentage": 0,
       "media": [
-        "/products/35.svg"
+        "/products/45.jpg"
       ],
       "type": "kitchen"
     },
@@ -795,7 +795,7 @@
       "isBlackFriday": true,
       "salePercentage": 28,
       "media": [
-        "/products/36.svg"
+        "/products/46.webp"
       ],
       "type": "kitchen"
     },
@@ -809,7 +809,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/37.svg"
+        "/products/47.webp"
       ],
       "type": "kitchen"
     },
@@ -823,7 +823,7 @@
       "isBlackFriday": true,
       "salePercentage": 37,
       "media": [
-        "/products/38.svg"
+        "/products/48.jpg"
       ],
       "type": "kitchen"
     },
@@ -837,7 +837,7 @@
       "isBlackFriday": false,
       "salePercentage": 0,
       "media": [
-        "/products/39.svg"
+        "/products/49.jpg"
       ],
       "type": "kitchen"
     },
@@ -851,7 +851,7 @@
       "isBlackFriday": false,
       "salePercentage": 12,
       "media": [
-        "/products/40.svg"
+        "/products/50.webp"
       ],
       "type": "kitchen"
     }
