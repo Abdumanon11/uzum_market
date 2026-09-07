@@ -17,7 +17,8 @@ const pages = [
       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-      await import('../src/scripts/menu.js')
+      const { initMenu } = await import('../src/scripts/menu.js')
+      initMenu()
       await import('../src/scripts/modal_reg.js')
       import('../src/scripts/showMessage.js')
       const { initHome } = await import('../src/scripts/home.js')
@@ -39,7 +40,8 @@ const pages = [
       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-      await import('../src/scripts/menu.js')
+      const { initMenu } = await import('../src/scripts/menu.js')
+      initMenu()
       await import('../src/scripts/modal_reg.js')
     }
   },
@@ -59,7 +61,8 @@ const pages = [
     },
     loandScripts: async () => {
       import('../src/scripts/katalog.js')
-      await import('../src/scripts/menu.js')
+      const { initMenu } = await import('../src/scripts/menu.js')
+      initMenu()
       await import('../src/scripts/modal_reg.js')
 
     }
@@ -78,7 +81,8 @@ const pages = [
       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-      await import('../src/scripts/menu.js')
+      const { initMenu } = await import('../src/scripts/menu.js')
+      initMenu()
       await import('../src/scripts/modal_reg.js')
       import('../src/scripts/korzina.js')
     }
@@ -113,7 +117,8 @@ const pages = [
     },
     loandScripts: async () => {
       import('../src/scripts/like.js')
-      await import('../src/scripts/menu.js')
+      const { initMenu } = await import('../src/scripts/menu.js')
+      initMenu()
       await import('../src/scripts/modal_reg.js')
     }
   },
@@ -132,7 +137,8 @@ const pages = [
     },
     loandScripts: async () => {
       import('../src/scripts/produkt.js')
-      await import('../src/scripts/menu.js')
+      const { initMenu } = await import('../src/scripts/menu.js')
+      initMenu()
       await import('../src/scripts/modal_reg.js')
       import('../src/scripts/productpx.js')
       import('../src/scripts/showMessage.js')
