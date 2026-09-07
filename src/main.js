@@ -1,4 +1,4 @@
-import './styles/style.css' 
+import './styles/style.css'
 import axios from "axios";
 const pages = [
 
@@ -20,7 +20,8 @@ const pages = [
       await import('../src/scripts/menu.js')
       await import('../src/scripts/modal_reg.js')
       import('../src/scripts/showMessage.js')
-      import('../src/scripts/home.js')
+      const { initHome } = await import('../src/scripts/home.js')
+      initHome()
       import('../src/scripts/swiper.js')
     }
 
