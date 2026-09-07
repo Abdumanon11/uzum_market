@@ -1,150 +1,157 @@
 import axios from "axios";
+
 import {
   getLikedProducts,
   saveLikedProducts,
   getCartProducts,
   saveCartProducts
 } from "./storage.js";
+
 import { showMessage } from "./showMessage.js";
 
-const similarContainer = document.getElementById("produsts");
-const currentId = sessionStorage.getItem("currentProductId");
+export function initProductPx() {
 
-axios.get("http://localhost:7777/goods")
-  .then((res) => {
-    const allGoods = res.data;
+  const similarContainer = document.getElementById("produsts");
+  const params = new URLSearchParams(window.location.search);
+  const currentId = params.get("id");
 
-    const currentProduct = allGoods.find(item => item.id == currentId);
-    if (!currentProduct) return;
+  if (!similarContainer) return;
 
-    const similarGoods = allGoods
-      .filter(item => item.id != currentProduct.id && item.type === currentProduct.type)
-      .slice(0, 4);
+  axios.get("http://localhost:7777/goods")
+    .then((res) => {
+      const allGoods = res.data;
 
-    renderSimilarProducts(similarGoods);
-  })
-  .catch((err) => {
-    console.error("Ошибка при загрузке похожих товаров:", err);
-  });
+      const currentProduct = allGoods.find(item => item.id == currentId);
+      if (!currentProduct) return;
 
-function renderSimilarProducts(goods) {
-  const liked = JSON.parse(localStorage.getItem('liked')) || [];
+      const similarGoods = allGoods
+        .filter(item => item.id != currentProduct.id && item.type === currentProduct.type)
+        .slice(0, 4);
 
-  for (let item of goods) {
-    const formattedPrice = Number(item.price).toLocaleString("ru-RU");
-
-    const product = document.createElement('div');
-    product.className = 'product';
-    product.dataset.id = item.id;
-
-    const img_box = document.createElement('div');
-    img_box.className = 'img_box';
-
-    const img_pr = document.createElement('img');
-    img_pr.src = item.media[0];
-    img_pr.className = 'img_pr';
-
-
-    const favorite_btn = document.createElement('button');
-    favorite_btn.className = 'favorite-btn';
-    const icon = document.createElement('img');
-    const isLiked = liked.some(el => el.id === item.id);
-    icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png'; // ← Меняет иконку при загрузке
-    favorite_btn.appendChild(icon);
-
-    favorite_btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      let liked = getLikedProducts();
-
-      const itemData = {
-        id: item.id,
-        title: item.title,
-        media: item.media,
-        price: item.price
-      };
-
-      const exists = liked.some(el => el.id === item.id);
-
-      if (!exists) {
-        liked.push(itemData);
-        saveLikedProducts(liked);
-        icon.src = '/public/Vector2.png';
-        showMessage('Добавлено в избранное');
-      } else {
-        liked = liked.filter(el => el.id !== item.id);
-        saveLikedProducts(liked);
-        icon.src = '/public/Vector.png';
-        showMessage('Удалено из избранного');
-      }
-
+      renderSimilarProducts(similarGoods);
+    })
+    .catch((err) => {
+      console.error("Ошибка при загрузке похожих товаров:", err);
     });
 
-    const text = document.createElement('div');
-    text.className = 'text';
+  function renderSimilarProducts(goods) {
+    const liked = JSON.parse(localStorage.getItem('liked')) || [];
 
-    const tide = document.createElement('p');
-    tide.className = 'tide';
-    tide.textContent = item.title;
+    for (let item of goods) {
+      const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
-    const skd = document.createElement('p');
-    skd.className = 'skd';
-    skd.textContent = `${formattedPrice} сум`;
+      const product = document.createElement('div');
+      product.className = 'product';
+      product.dataset.id = item.id;
 
-    const k_t = document.createElement('div');
-    k_t.className = 'k_t';
+      const img_box = document.createElement('div');
+      img_box.className = 'img_box';
 
-    const h4 = document.createElement('h4');
-    h4.className = 'h4';
-    h4.textContent = `${formattedPrice} сум`;
+      const img_pr = document.createElement('img');
+      img_pr.src = item.media[0];
+      img_pr.className = 'img_pr';
 
-    // Кнопка корзины
-    const karsin = document.createElement('button');
-    karsin.className = 'karsin';
 
-    const img2 = document.createElement('img');
-    img2.src = '/public/Group 237756.png';
-    karsin.appendChild(img2);
+      const favorite_btn = document.createElement('button');
+      favorite_btn.className = 'favorite-btn';
+      const icon = document.createElement('img');
+      const isLiked = liked.some(el => el.id === item.id);
+      icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png'; // ← Меняет иконку при загрузке
+      favorite_btn.appendChild(icon);
 
-    karsin.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const cart = getCartProducts();
+      favorite_btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        let liked = getLikedProducts();
 
-      const itemData = {
-        id: item.id,
-        title: item.title,
-        media: item.media,
-        price: item.price
-      };
+        const itemData = {
+          id: item.id,
+          title: item.title,
+          media: item.media,
+          price: item.price
+        };
 
-      const exists = cart.some(el => el.id === item.id);
+        const exists = liked.some(el => el.id === item.id);
 
-      if (!exists) {
-        cart.push(itemData);
-        saveCartProducts(cart);
-        showMessage('Товар добавлен в корзину');
-      } else {
-        showMessage('Этот товар уже в корзине');
-      }
-    });
+        if (!exists) {
+          liked.push(itemData);
+          saveLikedProducts(liked);
+          icon.src = '/public/Vector2.png';
+          showMessage('Добавлено в избранное');
+        } else {
+          liked = liked.filter(el => el.id !== item.id);
+          saveLikedProducts(liked);
+          icon.src = '/public/Vector.png';
+          showMessage('Удалено из избранного');
+        }
 
-    // Сборка DOM
-    img_box.appendChild(img_pr);
-    img_box.appendChild(favorite_btn);
+      });
 
-    k_t.appendChild(h4);
-    k_t.appendChild(karsin);
+      const text = document.createElement('div');
+      text.className = 'text';
 
-    text.appendChild(tide);
-    text.appendChild(skd);
-    text.appendChild(k_t);
+      const tide = document.createElement('p');
+      tide.className = 'tide';
+      tide.textContent = item.title;
 
-    product.appendChild(img_box);
-    product.appendChild(text);
-    product.addEventListener('click', () => {
-      sessionStorage.setItem('currentProductId', item.id);
-      history.pushState({}, '', `/produkt?id=${item.id}`);
-      window.dispatchEvent(new PopStateEvent('popstate'));
-    });
-    similarContainer.appendChild(product);
+      const skd = document.createElement('p');
+      skd.className = 'skd';
+      skd.textContent = `${formattedPrice} сум`;
+
+      const k_t = document.createElement('div');
+      k_t.className = 'k_t';
+
+      const h4 = document.createElement('h4');
+      h4.className = 'h4';
+      h4.textContent = `${formattedPrice} сум`;
+
+      // Кнопка корзины
+      const karsin = document.createElement('button');
+      karsin.className = 'karsin';
+
+      const img2 = document.createElement('img');
+      img2.src = '/public/Group 237756.png';
+      karsin.appendChild(img2);
+
+      karsin.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const cart = getCartProducts();
+
+        const itemData = {
+          id: item.id,
+          title: item.title,
+          media: item.media,
+          price: item.price
+        };
+
+        const exists = cart.some(el => el.id === item.id);
+
+        if (!exists) {
+          cart.push(itemData);
+          saveCartProducts(cart);
+          showMessage('Товар добавлен в корзину');
+        } else {
+          showMessage('Этот товар уже в корзине');
+        }
+      });
+
+      // Сборка DOM
+      img_box.appendChild(img_pr);
+      img_box.appendChild(favorite_btn);
+
+      k_t.appendChild(h4);
+      k_t.appendChild(karsin);
+
+      text.appendChild(tide);
+      text.appendChild(skd);
+      text.appendChild(k_t);
+
+      product.appendChild(img_box);
+      product.appendChild(text);
+      product.addEventListener('click', () => {
+        history.pushState({}, '', `/produkt?id=${item.id}`);
+        window.dispatchEvent(new PopStateEvent('popstate'));
+      });
+      similarContainer.appendChild(product);
+    }
   }
 }
