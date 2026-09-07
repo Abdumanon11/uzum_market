@@ -140,12 +140,11 @@ function renderSimilarProducts(goods) {
 
     product.appendChild(img_box);
     product.appendChild(text);
-
     product.addEventListener('click', () => {
       sessionStorage.setItem('currentProductId', item.id);
-      window.location.href = '/produkt';
+      history.pushState({}, '', `/produkt?id=${item.id}`);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     });
-
     similarContainer.appendChild(product);
   }
 }

@@ -7,7 +7,9 @@ import {
 } from "./storage.js";
 import { showMessage } from "./showMessage.js";
 
-const id = sessionStorage.getItem('currentProductId');
+export function initProdukt() {
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
 
 if (id) {
   axios.get(`http://localhost:7777/goods/${id}`)
@@ -168,4 +170,5 @@ item.media.forEach((image) => {
   ops.append(h2, pp_2);
   text_box.append(h1, price, num_box, pl_box, pp, btn_box, ops);
   product.append(pr_img, text_box);
+}
 }

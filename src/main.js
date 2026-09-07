@@ -136,14 +136,16 @@ const pages = [
       import('../src/styles/mediya.css')
     },
     loandScripts: async () => {
-      import('../src/scripts/produkt.js')
-      const { initMenu } = await import('../src/scripts/menu.js')
-      initMenu()
-      await import('../src/scripts/modal_reg.js')
-      import('../src/scripts/productpx.js')
-      import('../src/scripts/showMessage.js')
+    const { initProdukt } = await import('../src/scripts/produkt.js')
+    initProdukt()
 
-    }
+    const { initMenu } = await import('../src/scripts/menu.js')
+    initMenu()
+
+    await import('../src/scripts/modal_reg.js')
+    import('../src/scripts/productpx.js')
+    import('../src/scripts/showMessage.js')
+}
 
   }
 
