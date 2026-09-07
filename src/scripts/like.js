@@ -136,8 +136,10 @@ function createProductCard(goods) {
 
 
     product.addEventListener('click', () => {
-      sessionStorage.setItem('currentProductId', item.id);
-      window.location.href = '/produkt';
+      const id = product.dataset.id;
+
+      window.history.pushState({}, '', `/produkt?id=${id}`);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     });
 
     productsContainer.appendChild(product);

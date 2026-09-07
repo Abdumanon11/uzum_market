@@ -140,9 +140,9 @@ function renderProducts(goods) {
 
     product.addEventListener('click', () => {
       const id = product.dataset.id;
-      sessionStorage.setItem('currentProductId', id);
-      window.history.pushState({}, '', '/produkt');
-      location.reload();
+
+      window.history.pushState({}, '', `/produkt?id=${id}`);
+      window.dispatchEvent(new PopStateEvent('popstate'));
     });
 
     productsContainer.appendChild(product);
