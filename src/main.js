@@ -1,4 +1,4 @@
- import './styles/style.css' 
+import './styles/style.css' 
 import axios from "axios";
 const pages = [
 
@@ -161,3 +161,4 @@ export async function router() {
   if (route.loandScripts) await route.loandScripts();
 }
 router()
+window.addEventListener('popstate', router)
