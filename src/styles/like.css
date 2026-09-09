@@ -15,7 +15,6 @@
 
 .conteiner {
     width: 100%;
-    min-height: calc(100vh - 80px);
 
     display: flex;
     flex-direction: column;
@@ -115,15 +114,12 @@
 /* =================================
    7. ИЗОБРАЖЕНИЕ ТОВАРА
 ================================= */
-
 .img_box {
     width: 230px;
     height: 300px;
 
     position: relative;
 
-    border-radius: 12px;
-    overflow: hidden;
     border-radius: var(--radius-md);
     overflow: hidden;
 }
@@ -135,10 +131,7 @@
     display: block;
 
     object-fit: cover;
-
-    border-radius: 12px;
 }
-
 
 /* =================================
    8. КНОПКА ИЗБРАННОГО

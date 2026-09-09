@@ -21,7 +21,7 @@
 
 .conteiner_box {
     width: min(100% - 40px, 1200px);
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
 
 
