@@ -87,12 +87,7 @@ transition:
     min-width: 200px;
     max-width: 720px;
 }
-.search-wrapper {
-    position: relative;
 
-    flex: 1;
-    min-width: 200px;
-}
 
 #search-input {
     width: 100%;
