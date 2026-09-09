@@ -30,6 +30,7 @@
     display: block;
     margin: 0 auto 16px;
 }
+
 #like-box {
     width: 100%;
     min-height: 500px;
@@ -39,8 +40,12 @@
     align-items: center;
     justify-content: center;
 
+    min-height: 300px;
+
+    color: var(--color-text);
     text-align: center;
 }
+
 #like-box h1 {
     margin-bottom: 10px;
     font-size: 22px;
@@ -87,7 +92,23 @@
     width: 230px;
     height: 410px;
 
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-md);
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.product:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
 
@@ -102,6 +123,8 @@
     position: relative;
 
     border-radius: 12px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
     overflow: hidden;
 }
 
@@ -141,6 +164,8 @@
 
     background: #fff;
 
+    z-index: 2;
+
     cursor: pointer;
 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -151,18 +176,17 @@
 }
 
 .favorite-btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.14);
 }
 
 .favorite-btn img {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
 
     object-fit: contain;
 }
-
 
 /* =================================
    9. ТЕКСТ ТОВАРА
@@ -205,53 +229,67 @@
     margin-top: 4px;
 }
 
-.skd {
-    margin: 0;
-
-    color: #999;
-
-    font-family:
-        'Trebuchet MS',
-        'Lucida Sans Unicode',
-        'Lucida Grande',
-        'Lucida Sans',
-        Arial,
-        sans-serif;
-
-    font-size: 14px;
-
-    text-decoration: line-through;
+.price {
+    color: var(--color-text);
+    font-size: 18px;
+    font-weight: 700;
 }
 
+.k_t {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 4px;
+}
+.skd {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: line-through;
+
+}
 
 /* =================================
    11. КОРЗИНА
 ================================= */
 
 .karsin {
+    width: 36px;
+    height: 36px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin-left: auto;
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
 
-    padding: 0;
-
-    border: none;
-
-    background: #fff;
+    background: var(--color-white);
 
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.karsin:hover {
+    transform: scale(1.06);
+
+    background: var(--color-bg);
+    border-color: var(--color-primary);
 }
 
 .karsin img {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
 
     object-fit: contain;
 }
-
-
 /* =================================
    12. АДАПТИВНОСТЬ
 ================================= */
@@ -294,10 +332,5 @@
     }
 
 }
-
-
-/* =================================
-   12. АДАПТИВНОСТЬ
-================================= */
 
 

@@ -60,7 +60,8 @@ const pages = [
 
     },
     loandScripts: async () => {
-      import('../src/scripts/katalog.js')
+      const { initKatalog } = await import('../src/scripts/katalog.js')
+      initKatalog()
       const { initMenu } = await import('../src/scripts/menu.js')
       initMenu()
       await import('../src/scripts/modal_reg.js')
@@ -116,7 +117,8 @@ const pages = [
       import('../src/styles/showMessage.css')
     },
     loandScripts: async () => {
-      import('../src/scripts/like.js')
+      const { initLike } = await import('../src/scripts/like.js')
+      initLike()
       const { initMenu } = await import('../src/scripts/menu.js')
       initMenu()
       await import('../src/scripts/modal_reg.js')

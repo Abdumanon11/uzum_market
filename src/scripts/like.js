@@ -47,14 +47,11 @@ function createProductCard(goods) {
     icon.src = isLiked ? '/public/Vector2.png' : '/public/Vector.png';
 
     favorite_btn.appendChild(icon);
-
     favorite_btn.addEventListener("click", (e) => {
       e.stopPropagation();
-
       let liked = getLikedProducts();
 
       const exists = liked.some(el => el.id === item.id);
-
       if (!exists) {
         liked.push({
           id: item.id,
@@ -76,8 +73,6 @@ function createProductCard(goods) {
         renderLiked();
       }
     });
-
-
     imgBox.append(img, favorite_btn);
 
 
@@ -114,26 +109,35 @@ function createProductCard(goods) {
     img2.src = '/public/Group 237756.png';
 
 
-    const text = document.createElement('div');
-    text.className = 'text';
+const text = document.createElement('div');
+text.className = 'text';
 
-    const box_text = document.createElement('div')
-    box_text.className = 'box_text'
+const tide = document.createElement('p');
+tide.className = 'tide';
+tide.textContent = item.title;
 
-    const title = document.createElement('p');
-    title.className = 'tide';
-    title.textContent = item.title;
+const skd = document.createElement('p');
+skd.className = 'skd';
+skd.textContent = `${formattedPrice} сум`;
 
-    const price = document.createElement('p');
-    price.className = 'skd';
-    price.textContent = `${formattedPrice} сум`;
+const k_t = document.createElement('div');
+k_t.className = 'k_t';
 
+const h4 = document.createElement('h4');
+h4.className = 'h4';
+h4.textContent = `${formattedPrice} сум`;
 
-    karsin.appendChild(img2)
-    text.append(title);
-    box_text.append(price, karsin)
-    product.append(imgBox, text, box_text);
+karsin.appendChild(img2);
 
+k_t.appendChild(h4);
+k_t.appendChild(karsin);
+
+text.appendChild(tide);
+text.appendChild(skd);
+text.appendChild(k_t);
+
+product.appendChild(imgBox);
+product.appendChild(text);
 
     product.addEventListener('click', () => {
       const id = product.dataset.id;
@@ -145,5 +149,7 @@ function createProductCard(goods) {
     productsContainer.appendChild(product);
   }
 }
+export function initLike() {
+    renderLiked();
+}
 
-renderLiked();
