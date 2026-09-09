@@ -7,21 +7,22 @@ import {
 
 import { showMessage } from "./showMessage.js";
 
-const productsContainer = document.getElementById("produsts");
-const likeBox = document.getElementById("like-box");
-
 function renderLiked() {
-  const likedItems = getLikedProducts();
+    const productsContainer = document.getElementById("produsts");
+    const likeBox = document.getElementById("like-box");
 
-  productsContainer.innerHTML = '';
-  if (likedItems.length === 0) {
-    likeBox.style.display = 'block';
-    productsContainer.style.display = 'none';
-  } else {
-    likeBox.style.display = 'none';
-    productsContainer.style.display = 'flex';
-    createProductCard(likedItems);
-  }
+    const likedItems = getLikedProducts();
+
+    productsContainer.innerHTML = '';
+
+    if (likedItems.length === 0) {
+        likeBox.style.display = 'block';
+        productsContainer.style.display = 'none';
+    } else {
+        likeBox.style.display = 'none';
+        productsContainer.style.display = 'flex';
+        createProductCard(likedItems);
+    }
 }
 
 function createProductCard(goods) {
