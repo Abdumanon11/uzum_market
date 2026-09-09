@@ -1,8 +1,8 @@
 .slider {
     width: 1300px;
-    max-width: calc(100vw - 40px);
-    height: min(500px, 38vw);
-    min-height: 320px;
+    max-width: 100%;
+    aspect-ratio: 13 / 5;
+    height: auto;
 
     margin: 0 auto;
 
@@ -16,24 +16,19 @@
 
 .slider .list {
     position: absolute;
-
     width: max-content;
     height: 100%;
-
     left: 0;
     top: 0;
 
     display: flex;
-
     border-radius: inherit;
 
     transition: left 1s ease;
 }
 
-
 .slider .list .item {
-    width: min(1300px, calc(100vw - 40px));
-    flex: 0 0 min(1300px, calc(100vw - 40px));
+    flex-shrink: 0;
     height: 100%;
 }
 
@@ -43,7 +38,6 @@
     display: block;
     object-fit: cover;
 }
-
 
 /* ================================
    КНОПКИ
