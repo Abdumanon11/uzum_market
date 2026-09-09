@@ -36,22 +36,28 @@
 ========================= */
 
 .tovars {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
     min-height: 200px;
-    border: 1px solid #d9d9d9;
-    border-radius: 12px;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
     padding: 20px;
-    background-color: #fff;
+
+    background-color: var(--color-white);
 }
 
 
 /* Заголовок */
-
 .h1_kr {
     padding: 0;
     margin-bottom: 25px;
+
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 26px;
+    font-size: 22px;
+    font-weight: 700;
+
+    color: var(--color-text);
     text-align: left;
 }
 
@@ -138,46 +144,52 @@
 ========================= */
 
 .BTN_BOX {
-    width: 90px;
-    height: 32px;
+    width: 96px;
+    height: 36px;
 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
-    gap: 8px;
+    padding: 3px;
 
-    border: 1px solid #d9d9d9;
-    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
 
-    background-color: #fff;
+    background-color: var(--color-white);
 }
 
 .BTN_BOX button {
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 30px;
 
     border: none;
-    border-radius: 50%;
+    border-radius: 6px;
 
-    background-color: #fff;
+    background-color: var(--color-bg);
+    color: var(--color-text);
 
-    font-size: 18px;
+    font-size: 17px;
     cursor: pointer;
 
-    transition: background-color 0.15s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .BTN_BOX button:hover {
-    background-color: #f1f1f1;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 .BTN_BOX p {
-    min-width: 18px;
+    min-width: 20px;
+
+    color: var(--color-text);
     text-align: center;
     font-size: 14px;
+    font-weight: 600;
 }
-
 
 /* =========================
    КНОПКА УДАЛЕНИЯ
@@ -188,19 +200,23 @@
     height: 32px;
 
     border: none;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
 
-    color: #7000ff;
-    background-color: #eeeeff;
+    color: var(--color-primary);
+    background-color: #f1e8ff;
 
     cursor: pointer;
 
-    transition: background-color 0.15s ease;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 .del:hover {
-    background-color: #e2e2ff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
+
 
 
 /* =========================
@@ -208,15 +224,15 @@
 ========================= */
 
 .box_ofr {
-    width: 330px;
+    width: 300px;
     flex-shrink: 0;
 
     padding: 20px;
 
-    border: 1px solid #d9d9d9;
-    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
 
-    background-color: #fff;
+    background-color: var(--color-white);
 
     text-align: left;
 }
@@ -226,19 +242,22 @@
 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
+    font-weight: 700;
+
+    color: var(--color-text);
 }
 
 .box_ofr p {
     padding-bottom: 20px;
 
-    font-family: 'Trebuchet MS',
+    font-family:
+        'Trebuchet MS',
         'Lucida Sans Unicode',
         'Lucida Grande',
-        'Lucida Sans',
         Arial,
         sans-serif;
 
-    color: #666;
+    color: var(--color-text-secondary);
 }
 
 
@@ -251,22 +270,23 @@
     height: 42px;
 
     border: none;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
 
-    background-color: #7000ff;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 
     font-size: 15px;
     font-weight: 600;
 
     cursor: pointer;
 
-    transition: background-color 0.15s ease,
-                transform 0.15s ease;
+    transition:
+        background-color 0.2s ease,
+        transform 0.15s ease;
 }
 
 .ofr:hover {
-    background-color: #5f00dc;
+    background-color: var(--color-primary-dark);
 }
 
 .ofr:active {
