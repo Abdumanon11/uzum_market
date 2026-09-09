@@ -1,7 +1,8 @@
 .slider {
     width: 1300px;
     max-width: calc(100vw - 40px);
-    height: 500px;
+    height: min(500px, 38vw);
+    min-height: 320px;
 
     margin: 0 auto;
 
@@ -31,8 +32,9 @@
 
 
 .slider .list .item {
-    width: 100%;
-    flex: 0 0 100%;
+    width: min(1300px, calc(100vw - 40px));
+    flex: 0 0 min(1300px, calc(100vw - 40px));
+    height: 100%;
 }
 
 .slider .list img {
@@ -165,9 +167,9 @@
 ================================ */
 
 @media screen and (max-width: 1000px) {
-
     .slider {
-        height: 400px;
+        height: min(400px, 50vw);
+        min-height: 300px;
         border-radius: 24px;
     }
 
