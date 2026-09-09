@@ -26,7 +26,9 @@ function renderLiked() {
 }
 
 function createProductCard(goods) {
-  for (let item of goods) {
+    const productsContainer = document.getElementById("produsts");
+
+    for (let item of goods) {
     const formattedPrice = Number(item.price).toLocaleString("ru-RU");
 
     const product = document.createElement('div');
