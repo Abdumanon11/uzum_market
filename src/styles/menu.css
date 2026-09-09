@@ -596,3 +596,34 @@ transition:
     outline: 3px solid rgba(112, 0, 255, 0.18);
     outline-offset: 2px;
 }
+
+.btn_close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    background: transparent;
+
+    color: var(--color-secondary);
+    font-size: 28px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.btn_close:hover {
+    color: var(--color-text);
+    transform: scale(1.1);
+}
+@media (max-width: 480px) {
+    .modal_ps {
+        width: calc(100% - 32px);
+        padding: 24px;
+    }
+}

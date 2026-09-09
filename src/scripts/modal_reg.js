@@ -8,6 +8,10 @@ modal_ps.className = 'modal_ps';
 const modal_cont = document.createElement('div');
 modal_cont.className = 'modal_cont';
 
+const btn_close = document.createElement('button');
+btn_close.textContent = '×';
+btn_close.className = 'btn_close';
+
 const uzumid_logo = document.createElement('img');
 uzumid_logo.src = '/public/Group.png';
 uzumid_logo.alt = 'Uzum ID';
@@ -22,23 +26,30 @@ const btn_get_code = document.createElement('button');
 btn_get_code.textContent = 'Получить код';
 btn_get_code.className = 'btn_get_code';
 
+btn_close.addEventListener('click', () => {
+    modal_ps.classList.remove('active');
+    overlay_ps.classList.remove('active');
+});
+
 btn_get_code.addEventListener('click', () => {
-  const phone = input_tel.value.trim();
 
-  if (!phone.startsWith('+998') || phone.length < 13) {
-    alert('Введите корректный номер телефона');
-    return;
-  }
+    const phone = input_tel.value.trim();
 
-  localStorage.setItem('userPhone', phone);
+    if (!phone.startsWith('+998') || phone.length < 13) {
+        alert('Введите корректный номер телефона');
+        return;
+    }
 
-  alert('Регистрация прошла успешно!');
+    localStorage.setItem('userPhone', phone);
 
-  modal_ps.classList.remove('active');
-  overlay_ps.classList.remove('active');
+    alert('Регистрация прошла успешно!');
+
+    modal_ps.classList.remove('active');
+    overlay_ps.classList.remove('active');
 });
 
 modal_cont.append(uzumid_logo, input_tel, btn_get_code);
+modal_ps.appendChild(btn_close);
 modal_ps.appendChild(modal_cont);
 document.body.appendChild(modal_ps);
 
@@ -57,4 +68,11 @@ if (!img_ava) {
 overlay_ps.addEventListener('click', () => {
   modal_ps.classList.remove('active');
   overlay_ps.classList.remove('active');
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        modal_ps.classList.remove('active');
+        overlay_ps.classList.remove('active');
+    }
 });
